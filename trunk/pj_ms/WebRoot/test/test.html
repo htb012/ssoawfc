@@ -1,0 +1,40 @@
+<html>
+	<head>
+		<title>test</title>
+		<script type="text/javascript">
+		function checkTest(){
+			var result = document.all.checkbox.checked;
+			if(result == true){
+		 		document.all.ppp.disabled = true;
+		 	}else{
+		 		document.all.ppp.disabled = false;
+		 	}
+		}
+	</script>
+	</head>
+
+	<form method="get" action="test.do" name="test">
+		<p>
+			<input id="ppp" type="text" value="特色他" name="text1"  disabled="disabled">
+			&nbsp;
+			<input type="checkbox" value="true" name="checkbox"
+				onclick="checkTest()">
+			test
+		</p>
+		<p id="pppp" disabled="false">
+			可以看见我吗？？
+		</p>
+		<p>
+			&nbsp;
+		</p>
+		<p>
+			&nbsp;
+		</p>
+		<p>
+			&nbsp;
+		</p>
+		<p>
+			&nbsp;
+		</p>
+	</form>
+</html>

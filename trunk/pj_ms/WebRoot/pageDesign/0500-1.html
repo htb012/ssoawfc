@@ -1,0 +1,79 @@
+<style type="text/css">
+<!--
+.STYLE2 {color: #FF0000}
+.STYLE3 {font-size: 18px}
+-->
+</style>
+<p>
+<meta content="text/html; charset=shift_jis" http-equiv="Content-Type" /></p>
+<p align="center" class="STYLE3">連絡事項作成</p>
+<form id="form1" enctype="multipart/form-data" method="post" action="" name="form1">
+    <p class="STYLE2">※赤い項目が入力必須です。</p>
+    <p>お客様名
+      <input name="textfield" type="text" />
+      　
+    （修理報告書にお客様名が記載されていれば、記入する）</p>
+    <p><span class="STYLE2">モデル名</span>
+    <input name="textfield2" type="text" />
+    　
+    （PCの型番を入力する。）</p>
+  <p><span class="STYLE2">RMA番号</span>
+    <input name="textfield3" type="text" />
+    －
+    <input type="text" name="textfield9" />
+    　    （修理報告書に記載されているRMA番号を入力する。）</p>
+  <p><span class="STYLE2">シリアル番号</span>
+    <input name="textfield4" type="text" />
+    　
+    （PCのシリアル番号を入力する。）</p>
+  <p><span class="STYLE2">Key日付</span>
+    <input name="textfield42" type="text" />
+年
+    <input name="textfield422" type="text" />
+月
+    <input name="textfield423" type="text" />
+日　
+    <input name="textfield424" type="text" />
+時
+    <input name="textfield425" type="text" />
+分　
+  （Key日付と時間を入力する。）</p>
+  <p><span class="STYLE2">ロケーション</span>
+    <input name="textfield5" type="text" />
+    　
+    （置く場所を入力する。）</p>
+    <p>関連部品 <input name="textfield6" type="text" />　
+    　（交換する予定の部品を入力する）</p>
+    <p>部品番号 <input name="textfield7" type="text" />　
+    　（交換する予定の部品のパーツ番号を入力する）</p>
+    <p>待ち部品名
+      <input name="textfield8" type="text" />
+      　
+    （交換する予定の部品の中に、在庫ない部品名を入力する）</p>
+  <div>
+    <p>確認事項：
+      <select name="select">
+        <option value=""> </option>
+        <option value="">P1 </option>
+        <option value="">P2</option>
+        <option value="">P3</option>
+        <option value="">P4</option>
+        <option value="">P5</option>
+        <option value="">P6</option>
+        <option value="">P7</option>
+      </select>
+    </p>
+  </div>
+    <p align="left"><span class="STYLE2">確認内容</span>
+      <textarea name="example" cols="70" rows="10"></textarea>　
+  　（連絡事項、検証結果、確認事項、保証期間外情報などを入力する）</p>
+    <p><input maxlength="100" size="46" type="text" /> <input type="submit" value="写真アップロード" />　
+    　（CID写真がある場合、アップロードする）</p>
+    <p>abcd.jpg&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="削除" /></p>
+    <p>cdefgdfg.jpg&nbsp;&nbsp;<input type="submit" value="削除" /></p>
+    <p>&nbsp;</p>
+    <p align="center">
+      <input type="submit" name="Submit" value="確定" />　
+      <input type="submit" name="Submit2" value="キャンセル" />
+    </p>
+</form>

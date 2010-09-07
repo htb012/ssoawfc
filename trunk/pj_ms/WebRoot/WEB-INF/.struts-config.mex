@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/orderMgr.do" location="50,50" dimension="340,84" />
+  <StrutsActivity path="/contactMgr.do" location="650,250" dimension="316,84" />
+  <StrutsActivity path="/bulletinMgr.do" location="50,350" dimension="322,84" />
+  <StrutsActivity path="/modelMgr.do" location="950,550" dimension="322,84" />
+  <StrutsActivity path="/agentMgr.do" location="1250,750" dimension="304,84" />
+  <StrutsActivity path="/common/loadPage.jsp" location="1250,450" dimension="160,48" />
+  <StrutsActivity path="/systemRepair/particular.jsp" location="650,150" dimension="208,48" />
+  <StrutsActivity path="/systemRepair/showOrder.jsp" location="50,250" dimension="202,48" />
+  <StrutsActivity path="/systemRepair/add.jsp" location="650,50" dimension="166,48" />
+  <StrutsActivity path="/systemRepair/contact.jsp" location="350,250" dimension="190,48" />
+  <StrutsActivity path="/common/safeSuccess.jsp" location="915,165" dimension="178,48" />
+  <StrutsActivity path="/contact/contact.jsp" location="1250,250" dimension="160,48" />
+  <StrutsActivity path="/bulletin/mgrBulletin.jsp" location="650,550" dimension="190,48" />
+  <StrutsActivity path="/bulletin/edit.jsp" location="50,550" dimension="148,48" />
+  <StrutsActivity path="/bulletin/add.jsp" location="350,550" dimension="142,48" />
+  <StrutsActivity path="/bulletin/showBulletin.jsp" location="650,450" dimension="196,48" />
+  <StrutsActivity path="/model/showModel.jsp" location="350,650" dimension="160,48" />
+  <StrutsActivity path="/model/edit.jsp" location="650,650" dimension="130,48" />
+  <StrutsActivity path="/model/add.jsp" location="50,750" dimension="124,48" />
+  <StrutsActivity path="/agent/showAgent.jsp" location="650,850" dimension="160,48" />
+  <StrutsActivity path="/agent/edit.jsp" location="950,850" dimension="130,48" />
+  <StrutsActivity path="/agent/add.jsp" location="50,950" dimension="124,48" />
+  <StrutsActivity path="/common/delSuc.jsp" location="350,750" dimension="148,48" />
+  <StrutsActivity path="/bulletin/particular.jsp" location="950,450" dimension="184,48" />
+  <StrutsActivity path="/systemRepair/viewAll.jsp" location="950,50" dimension="190,48" />
+  <StrutsActivity path="/bulletin/showModel.jsp" location="50,650" dimension="178,48" />
+  <StrutsActivity path="" location="650,750" dimension="40,48" />
+  <StrutsActivity path="bullertin" location="950,750" dimension="94,48" />
+  <StrutsActivity path="bullertin/add.jsp" location="50,850" dimension="142,48" />
+  <StrutsActivity path="/bullertin/add.jsp" location="350,850" dimension="148,48" />
+  <StrutsActivity path="/contactMgr" location="350,950" dimension="106,48" />
+  <StrutsActivity path="contactMgr.do" location="650,950" dimension="124,72" />
+  <StrutsTransition id="/modelMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1155,550" />
+      <AbsolutePoint location="1155,189" />
+      <AbsolutePoint location="1093,189" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/agentMgr.do,showAgent,/agent/showAgent.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1365,750" />
+      <AbsolutePoint location="1365,713" />
+      <AbsolutePoint location="730,713" />
+      <AbsolutePoint location="730,850" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orderMgr.do,add,/systemRepair/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="390,53" />
+      <AbsolutePoint location="650,53" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/contactMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="930,250" />
+      <AbsolutePoint location="930,213" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orderMgr.do,loadPage,/common/loadPage.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="220,92" />
+      <AbsolutePoint location="1330,474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/bulletinMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="372,362" />
+      <AbsolutePoint location="1004,362" />
+      <AbsolutePoint location="1004,213" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/modelMgr.do,delSuc,/common/loadPage.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1265,550" />
+      <AbsolutePoint location="1265,498" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/bulletinMgr.do,add,/bulletin/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="365,434" />
+      <AbsolutePoint location="365,550" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/bulletinMgr.do,mgrBulletin,/bulletin/mgrBulletin.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="211,392" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/agentMgr.do,edit,/agent/edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1372,834" />
+      <AbsolutePoint location="1372,874" />
+      <AbsolutePoint location="1080,874" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orderMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="390,113" />
+      <AbsolutePoint location="974,113" />
+      <AbsolutePoint location="974,165" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orderMgr.do,contact,/systemRepair/contact.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="365,134" />
+      <AbsolutePoint location="365,250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/contactMgr.do,contact,/contact/contact.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="808,292" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/bulletinMgr.do,showBulletin,/bulletin/showBulletin.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="372,422" />
+      <AbsolutePoint location="748,422" />
+      <AbsolutePoint location="748,450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/modelMgr.do,add,/model/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1141,634" />
+      <AbsolutePoint location="1141,813" />
+      <AbsolutePoint location="112,813" />
+      <AbsolutePoint location="112,798" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/modelMgr.do,edit,/model/edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1081,634" />
+      <AbsolutePoint location="1081,674" />
+      <AbsolutePoint location="780,674" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/agentMgr.do,delSuc,/common/loadPage.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1395,750" />
+      <AbsolutePoint location="1395,498" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/agentMgr.do,add,/agent/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1402,792" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/contactMgr.do,delSuc,/common/loadPage.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="966,292" />
+      <AbsolutePoint location="1330,292" />
+      <AbsolutePoint location="1330,450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orderMgr.do,particular,/systemRepair/particular.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="220,134" />
+      <AbsolutePoint location="220,174" />
+      <AbsolutePoint location="650,174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/agentMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1425,750" />
+      <AbsolutePoint location="1425,149" />
+      <AbsolutePoint location="1004,149" />
+      <AbsolutePoint location="1004,165" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orderMgr.do,showOrder,/systemRepair/showOrder.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="190,134" />
+      <AbsolutePoint location="190,250" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/bulletin/add.jsp,null,/bulletinMgr.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="421,574" />
+      <AbsolutePoint location="211,392" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/bulletinMgr.do,edit,/bulletin/edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="183,434" />
+      <AbsolutePoint location="183,550" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/modelMgr.do,showModel,/model/showModel.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,613" />
+      <AbsolutePoint location="430,613" />
+      <AbsolutePoint location="430,650" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/bulletinMgr.do,delSuc,/common/loadPage.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="372,392" />
+      <AbsolutePoint location="1300,392" />
+      <AbsolutePoint location="1300,450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+
