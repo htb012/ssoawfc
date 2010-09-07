@@ -1,0 +1,15 @@
+DAOEnabled=true
+GenerationEnabled=true
+DAOPackageName=dao
+BaseDAOPackageName=base
+BasePackageName=base
+UseCustomRootDAO=false
+BasePackageStyle=Relative
+ContextObject=
+BOEnabled=true
+BaseDAOPackageStyle=Same
+CustomRootDAOClass=
+SourceLocation=\pj_ms\src
+BaseDAOUseBasePackage=true
+DAOPackageStyle=Relative
+BaseDAOException=net.sf.hibernate.HibernateException

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<data-sources />
+	<form-beans>
+		<form-bean name="RepairorderForm"
+			type="jp.co.pegatron.struts.form.RepairorderForm" />
+		<form-bean name="ContactForm"
+			type="jp.co.pegatron.struts.form.ContactForm" />
+		<form-bean name="BulletinForm"
+			type="jp.co.pegatron.struts.form.BulletinForm" />
+		<form-bean name="ModelForm"
+			type="jp.co.pegatron.struts.form.ModelForm" />
+		<form-bean name="AgentForm"
+			type="jp.co.pegatron.struts.form.AgentForm" />
+	</form-beans>
+	<global-exceptions />
+	<global-forwards />
+	<action-mappings>
+		<!-- 维修单管理 -->
+		<action path="/orderMgr" name="RepairorderForm" validate="false"
+			scope="request"
+			type="jp.co.pegatron.struts.action.RepairOrderMgrAction">
+			<forward name="showOrder"
+				path="/systemRepair/showOrder.jsp" />
+			<forward name="particular"
+				path="/systemRepair/particular.jsp" />
+			<forward name="contact" path="/systemRepair/contact.jsp" />
+			<forward name="add" path="/systemRepair/add.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+			<forward name="loadPage" path="/common/loadPage.jsp" />
+		</action>
+		<!-- 联络记录管理 -->
+		<action path="/contactMgr" name="ContactForm" validate="false"
+			scope="request"
+			type="jp.co.pegatron.struts.action.ContactMgrAction">
+			<forward name="contact" path="/contact/contact.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+			<forward name="delSuc" path="/common/loadPage.jsp" />
+		</action>
+		<!-- 通知管理 -->
+		<action path="/bulletinMgr" name="BulletinForm" validate="true"
+			scope="request" input="/bulletin/add.jsp"
+			type="jp.co.pegatron.struts.action.BulletinMgrAction">
+			<forward name="showBulletin"
+				path="/bulletin/showBulletin.jsp" />
+			<forward name="edit" path="/bulletin/edit.jsp" />
+			<forward name="mgrBulletin"
+				path="/bulletin/mgrBulletin.jsp" />
+			<forward name="add" path="/bulletin/add.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+			<forward name="delSuc" path="/common/loadPage.jsp" />
+		</action>
+		<!-- 机种管理 -->
+		<action path="/modelMgr" name="ModelForm" validate="false"
+			scope="request" type="jp.co.pegatron.struts.action.ModelMgrAction">
+			<forward name="showModel" path="/model/showModel.jsp" />
+			<forward name="edit" path="/model/edit.jsp" />
+			<forward name="add" path="/model/add.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+			<forward name="delSuc" path="/common/loadPage.jsp" />
+		</action>
+		<!-- 代理商管理 -->
+		<action path="/agentMgr" name="AgentForm" validate="false"
+			scope="request" type="jp.co.pegatron.struts.action.AgentMgrAction">
+			<forward name="showAgent" path="/agent/showAgent.jsp" />
+			<forward name="edit" path="/agent/edit.jsp" />
+			<forward name="add" path="/agent/add.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+			<forward name="delSuc" path="/common/loadPage.jsp" />
+		</action>
+	</action-mappings>
+	<message-resources
+		parameter="jp.co.pegatron.struts.ApplicationResources" />
+</struts-config>
+
