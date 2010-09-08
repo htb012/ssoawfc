@@ -1,0 +1,11 @@
+#Mon Apr 12 23:22:37 JST 2010
+eclipse.preferences.version=1
+encoding//WebRoot/js/infMgr.js=UTF-8
+encoding//WebRoot/js/pagination/page.js=UTF-8
+encoding//WebRoot/title.html=UTF-8
+encoding//config/struts/ApplicationResources.properties=GB2312
+encoding//config/systemConf.properties=UTF-8
+encoding//src/com/sso/common/validatecode=GB2312
+encoding//src/com/sso/common/validatecode/CreateValideCode.java=GB2312
+encoding//src/com/sso/struts/form/LogonForm.java=GBK
+encoding/<project>=UTF-8
