@@ -1,0 +1,24 @@
+#tiper {
+	z-index: 999999;
+	display: none;
+	position: absolute;
+	padding: 5px;
+	background-color: #EEEEEE;
+	border: 1px solid #333333;
+	-moz-box-shadow: 2px 2px 5px #eeeeee;
+	-webkit-box-shadow: 2px 2px 5px #eeeeee;
+	-webkit-border-radius: 5px;
+	-webkit-border-top-left-radius: 0;
+	-moz-border-radius: 5px;
+	-moz-border-radius-topleft: 0;
+	border-radius: 5px;
+	border-top-left-radius: 0;
+	color: #666;
+}
+
+span.tiper {
+	color: blue;
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #999;
+}

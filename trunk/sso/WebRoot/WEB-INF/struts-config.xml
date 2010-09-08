@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+	<data-sources />
+	<form-beans>
+		<form-bean name="logonForm"
+			type="com.sso.struts.form.LogonForm" />
+		<form-bean name="userForm" type="com.sso.struts.form.UserForm" />
+		<form-bean name="resourceForm"
+			type="com.sso.struts.form.ResourceForm" />
+		<form-bean name="orgForm"
+			type="com.sso.struts.form.OrganizationForm" />
+		<form-bean name="authgroupForm"
+			type="com.sso.struts.form.AuthoritygroupForm" />
+		<form-bean name="authForm"
+			type="com.sso.struts.form.AuthorityForm" />
+		<form-bean name="metaauthForm"
+			type="com.sso.struts.form.MetaauthorityForm" />
+		<form-bean name="authgrpAuthForm"
+			type="com.sso.struts.form.AuthgrpAuthForm" />
+		<form-bean name="orgUserForm"
+			type="com.sso.struts.form.OrgUserForm" />
+		<form-bean name="authgrpUserForm"
+			type="com.sso.struts.form.AuthgrpUserForm" />
+	</form-beans>
+	<global-exceptions />
+	<global-forwards />
+	<action-mappings>
+		<!-- 用户登录验证 -->
+		<action path="/logonMgr" name="logonForm" validate="true"
+			input="/logon/logon.jsp"
+			type="com.sso.struts.action.LogonMgrAction">
+			<forward name="logonPage" path="/logon/logon.jsp"></forward>
+			<forward name="defaultPage" path="/index.jsp"></forward>
+			<forward name="refresh" path="/logon/refreshFrame.jsp"></forward>
+		</action>
+
+		<!-- 用户管理 -->
+		<action path="/userMgr" name="userForm" scope="request"
+			input="/userMgr/editUser.jsp"
+			type="com.sso.struts.action.UserMgrAction" validate="false">
+			<forward name="viewUsers" path="/userMgr/viewUser.jsp" />
+			<forward name="modify" path="/userMgr/editUser.jsp" />
+			<forward name="add" path="/userMgr/add.jsp" />
+			<forward name="del" path="/userMgr/del.jsp" />
+			<forward name="success" path="/common/safeSuccess.jsp"
+				redirect="true" />
+			<forward name="editFail" path="/userMgr/register.jsp"
+				redirect="true" />
+			<forward name="regFail" path="/userMgr/register.jsp"
+				redirect="true" />
+		</action>
+
+		<!-- 资源管理 -->
+		<action path="/resMgr" name="resourceForm" scope="request"
+			type="com.sso.struts.action.ResourceMgrAction" validate="false">
+			<forward name="view" path="/resMgr/view.jsp" />
+			<forward name="edit" path="/resMgr/edit.jsp" />
+			<forward name="add" path="/resMgr/add.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+		</action>
+
+		<!-- 组织结构管理 -->
+		<action path="/orgMgr" name="orgForm" scope="request"
+			type="com.sso.struts.action.OrgMgrAction" validate="false">
+			<forward name="view" path="/orgMgr/view.jsp" />
+			<forward name="edit" path="/orgMgr/edit.jsp" />
+			<forward name="add" path="/orgMgr/add.jsp" />
+			<forward name="conf" path="/orgMgr/conf.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+		</action>
+		<!-- 权限管理 -->
+		<action path="/authMgr" name="authForm" scope="request"
+			type="com.sso.struts.action.AuthMgrAction" validate="false">
+			<forward name="view" path="/authMgr/view.jsp" />
+			<forward name="edit" path="/authMgr/edit.jsp" />
+			<forward name="add" path="/authMgr/add.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+		</action>
+		<!-- 权限组管理 -->
+		<action path="/authgroupMgr" name="authgroupForm"
+			scope="request" type="com.sso.struts.action.AuthgroupMgrAction"
+			validate="false">
+			<forward name="view" path="/authgroupMgr/view.jsp" />
+			<forward name="edit" path="/authgroupMgr/edit.jsp" />
+			<forward name="add" path="/authgroupMgr/add.jsp" />
+			<forward name="conf" path="/authgroupMgr/conf.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+		</action>
+		<!-- 元权限管理 -->
+		<action path="/metaauthMgr" name="metaauthForm" scope="request"
+			type="com.sso.struts.action.MetaauthMgrAction" validate="false">
+			<forward name="view" path="/metaauthMgr/view.jsp" />
+			<forward name="edit" path="/metaauthMgr/edit.jsp" />
+			<forward name="add" path="/metaauthMgr/add.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+		</action>
+		<!-- 权限组与权限关联管理 -->
+		<action path="/authgrpAuthMgr" name="authgrpAuthForm"
+			scope="request" type="com.sso.struts.action.AuthgrpAuthMgrAction"
+			validate="false">
+			<forward name="view" path="/authgrpAuthMgr/view.jsp" />
+			<forward name="edit" path="/authgrpAuthMgr/edit.jsp" />
+			<forward name="add" path="/authgrpAuthMgr/add.jsp" />
+			<forward name="conf" path="/authgrpAuthMgr/conf.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+		</action>
+		<!-- 组织结构与人员关联管理 -->
+		<action path="/orgUserMgr" name="orgUserForm" scope="request"
+			type="com.sso.struts.action.OrgUserMgrAction" validate="false">
+			<forward name="view" path="/orgUserMgr/view.jsp" />
+			<forward name="edit" path="/orgUserMgr/edit.jsp" />
+			<forward name="add" path="/orgUserMgr/add.jsp" />
+			<forward name="conf" path="/orgUserMgr/conf.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+		</action>
+		<!-- 权限组与人员关联管理 -->
+		<action path="/authgrpUserMgr" name="authgrpUserForm"
+			scope="request" type="com.sso.struts.action.AuthgrpUserMgrAction"
+			validate="false">
+			<forward name="view" path="/authgrpUserMgr/view.jsp" />
+			<forward name="edit" path="/authgrpUserMgr/edit.jsp" />
+			<forward name="add" path="/authgrpUserMgr/add.jsp" />
+			<forward name="conf" path="/authgrpUserMgr/conf.jsp" />
+			<forward name="safeSuc" path="/common/safeSuccess.jsp" />
+		</action>
+	</action-mappings>
+	<message-resources parameter="struts.ApplicationResources" />
+</struts-config>

@@ -1,0 +1,450 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlowViewLayout Version="1.2">
+  <StrutsActivity path="/logonMgr.do" location="950,50" dimension="262,84" />
+  <StrutsActivity path="/userMgr.do" location="210,-60" dimension="304,84" />
+  <StrutsActivity path="/resMgr.do" location="950,450" dimension="280,84" />
+  <StrutsActivity path="/orgMgr.do" location="1250,650" dimension="280,84" />
+  <StrutsActivity path="/authMgr.do" location="1250,850" dimension="286,84" />
+  <StrutsActivity path="/authgroupMgr.do" location="950,750" dimension="250,84" />
+  <StrutsActivity path="/metaauthMgr.do" location="650,950" dimension="286,84" />
+  <StrutsActivity path="/authgrpAuthMgr.do" location="50,1150" dimension="286,84" />
+  <StrutsActivity path="/orgUserMgr.do" location="1850,1050" dimension="250,84" />
+  <StrutsActivity path="/authgrpUserMgr.do" location="650,1250" dimension="298,84" />
+  <StrutsActivity path="/logon/logon.jsp" location="2150,950" dimension="136,48" />
+  <StrutsActivity path="/logon/refreshFrame.jsp" location="1550,150" dimension="178,48" />
+  <StrutsActivity path="/index.jsp" location="45,210" dimension="100,48" />
+  <StrutsActivity path="/userMgr/register.jsp" location="615,120" dimension="166,48" />
+  <StrutsActivity path="/userMgr/editUser.jsp" location="385,70" dimension="166,48" />
+  <StrutsActivity path="/userMgr/del.jsp" location="650,650" dimension="136,48" />
+  <StrutsActivity path="/userMgr/add.jsp" location="240,150" dimension="136,48" />
+  <StrutsActivity path="/common/safeSuccess.jsp" location="50,450" dimension="178,48" />
+  <StrutsActivity path="/userMgr/viewUser.jsp" location="205,70" dimension="166,48" />
+  <StrutsActivity path="/resMgr/edit.jsp" location="50,650" dimension="136,48" />
+  <StrutsActivity path="/resMgr/view.jsp" location="650,350" dimension="136,48" />
+  <StrutsActivity path="/resMgr/add.jsp" location="950,650" dimension="130,48" />
+  <StrutsActivity path="/orgMgr/edit.jsp" location="950,350" dimension="136,48" />
+  <StrutsActivity path="/orgMgr/conf.jsp" location="1550,1050" dimension="136,48" />
+  <StrutsActivity path="/orgMgr/view.jsp" location="350,750" dimension="136,48" />
+  <StrutsActivity path="/orgMgr/add.jsp" location="350,450" dimension="130,48" />
+  <StrutsActivity path="/authMgr/edit.jsp" location="1550,550" dimension="142,48" />
+  <StrutsActivity path="/authMgr/view.jsp" location="50,950" dimension="142,48" />
+  <StrutsActivity path="/authMgr/add.jsp" location="350,950" dimension="136,48" />
+  <StrutsActivity path="/authgroupMgr/edit.jsp" location="50,850" dimension="172,48" />
+  <StrutsActivity path="/authgroupMgr/conf.jsp" location="1250,1050" dimension="172,48" />
+  <StrutsActivity path="/authgroupMgr/view.jsp" location="350,850" dimension="172,48" />
+  <StrutsActivity path="/authgroupMgr/add.jsp" location="650,850" dimension="166,48" />
+  <StrutsActivity path="/metaauthMgr/edit.jsp" location="1550,450" dimension="166,48" />
+  <StrutsActivity path="/metaauthMgr/view.jsp" location="50,1050" dimension="166,48" />
+  <StrutsActivity path="/metaauthMgr/add.jsp" location="350,1050" dimension="160,48" />
+  <StrutsActivity path="/authgrpAuthMgr/edit.jsp" location="1850,650" dimension="184,48" />
+  <StrutsActivity path="/authgrpAuthMgr/conf.jsp" location="1850,750" dimension="184,48" />
+  <StrutsActivity path="/authgrpAuthMgr/view.jsp" location="1850,850" dimension="184,48" />
+  <StrutsActivity path="/authgrpAuthMgr/add.jsp" location="1850,950" dimension="178,48" />
+  <StrutsActivity path="/orgUserMgr/edit.jsp" location="650,1150" dimension="160,48" />
+  <StrutsActivity path="/orgUserMgr/conf.jsp" location="950,1150" dimension="160,48" />
+  <StrutsActivity path="/orgUserMgr/view.jsp" location="1250,1150" dimension="160,48" />
+  <StrutsActivity path="/orgUserMgr/add.jsp" location="1550,1150" dimension="154,48" />
+  <StrutsActivity path="/authgrpUserMgr/edit.jsp" location="350,1350" dimension="184,48" />
+  <StrutsActivity path="/authgrpUserMgr/conf.jsp" location="1250,1350" dimension="184,48" />
+  <StrutsActivity path="/authgrpUserMgr/view.jsp" location="1550,1350" dimension="184,48" />
+  <StrutsActivity path="/authgrpUserMgr/add.jsp" location="1850,1350" dimension="178,48" />
+  <StrutsActivity path="/login/login.jsp" location="30,-90" dimension="136,48" />
+  <StrutsActivity path="/orMgr/edit.jsp" location="50,750" dimension="130,48" />
+  <StrutsActivity path="/orMgr/add.jsp" location="650,750" dimension="124,48" />
+  <StrutsActivity path="/resMgr/viewRes.jsp" location="350,650" dimension="154,48" />
+  <StrutsActivity path="/userMgr/safeSuccess.jsp" location="930,-75" dimension="184,48" />
+  <StrutsActivity path="login/login.jsp" location="225,315" dimension="130,48" />
+  <StrutsActivity path="index.jsp" location="250,240" dimension="94,48" />
+  <StrutsActivity path="/login/fail.jsp" location="445,225" dimension="130,48" />
+  <StrutsActivity path="" location="385,240" dimension="40,48" />
+  <StrutsActivity path="/Login/login.jsp" location="435,315" dimension="136,48" />
+  <StrutsActivity path="/resource/resource.jsp" location="570,465" dimension="172,48" />
+  <StrutsActivity path="/resMgr/editUser.jsp" location="50,550" dimension="160,48" />
+  <StrutsActivity path="/resMgr/viewUser.jsp" location="350,550" dimension="160,48" />
+  <StrutsActivity path="/orgAuthgrpMgr/edit.jsp" location="1250,1250" dimension="178,48" />
+  <StrutsActivity path="/orgAuthgrpMgr/conf.jsp" location="1550,1250" dimension="178,48" />
+  <StrutsActivity path="/orgAuthgrpMgr/view.jsp" location="1850,1250" dimension="178,48" />
+  <StrutsActivity path="/orgAuthgrpMgr/add.jsp" location="50,1350" dimension="172,48" />
+  <StrutsTransition id="/authMgr.do,add,/authMgr/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1527,934" />
+      <AbsolutePoint location="1527,1639" />
+      <AbsolutePoint location="585,1639" />
+      <AbsolutePoint location="585,974" />
+      <AbsolutePoint location="486,974" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orgMgr.do,conf,/orgMgr/conf.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1530,692" />
+      <AbsolutePoint location="1591,692" />
+      <AbsolutePoint location="1591,1050" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userMgr.do,viewUsers,/userMgr/viewUser.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="258,24" />
+      <AbsolutePoint location="258,70" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/logonMgr.do,defaultPage,/index.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="95,234" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userMgr.do,regFail,/userMgr/register.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="210,-57" />
+      <AbsolutePoint location="181,-57" />
+      <AbsolutePoint location="181,135" />
+      <AbsolutePoint location="615,135" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgroupMgr.do,conf,/authgroupMgr/conf.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1075,834" />
+      <AbsolutePoint location="1075,1074" />
+      <AbsolutePoint location="1250,1074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/logon/logon.jsp,null,/logonMgr.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2218,974" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userMgr.do,add,/userMgr/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="210,12" />
+      <AbsolutePoint location="-15,12" />
+      <AbsolutePoint location="-15,174" />
+      <AbsolutePoint location="240,174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1467,934" />
+      <AbsolutePoint location="1467,1819" />
+      <AbsolutePoint location="-375,1819" />
+      <AbsolutePoint location="-375,273" />
+      <AbsolutePoint location="190,273" />
+      <AbsolutePoint location="190,450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgroupMgr.do,view,/authgroupMgr/view.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="995,834" />
+      <AbsolutePoint location="995,913" />
+      <AbsolutePoint location="436,913" />
+      <AbsolutePoint location="436,898" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgrpAuthMgr.do,view,/authgrpAuthMgr/view.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,1222" />
+      <AbsolutePoint location="-210,1222" />
+      <AbsolutePoint location="-210,1669" />
+      <AbsolutePoint location="1809,1669" />
+      <AbsolutePoint location="1809,862" />
+      <AbsolutePoint location="1850,862" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/resMgr.do,view,/resMgr/view.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,470" />
+      <AbsolutePoint location="757,470" />
+      <AbsolutePoint location="757,398" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgrpAuthMgr.do,add,/authgrpAuthMgr/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="193,1150" />
+      <AbsolutePoint location="193,1133" />
+      <AbsolutePoint location="995,1133" />
+      <AbsolutePoint location="995,974" />
+      <AbsolutePoint location="1850,974" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/resMgr.do,edit,/resMgr/edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1095,534" />
+      <AbsolutePoint location="1095,613" />
+      <AbsolutePoint location="118,613" />
+      <AbsolutePoint location="118,650" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/metaauthMgr.do,edit,/metaauthMgr/edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="921,950" />
+      <AbsolutePoint location="921,240" />
+      <AbsolutePoint location="1633,240" />
+      <AbsolutePoint location="1633,450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orgUserMgr.do,edit,/orgUserMgr/edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2073,1134" />
+      <AbsolutePoint location="2073,1729" />
+      <AbsolutePoint location="615,1729" />
+      <AbsolutePoint location="615,1174" />
+      <AbsolutePoint location="650,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgrpUserMgr.do,view,/authgrpUserMgr/view.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="948,1322" />
+      <AbsolutePoint location="1642,1322" />
+      <AbsolutePoint location="1642,1350" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orgMgr.do,view,/orgMgr/view.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1330,650" />
+      <AbsolutePoint location="1330,565" />
+      <AbsolutePoint location="615,565" />
+      <AbsolutePoint location="615,774" />
+      <AbsolutePoint location="486,774" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userMgr.do,modify,/userMgr/editUser.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="400,24" />
+      <AbsolutePoint location="400,70" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgroupMgr.do,edit,/authgroupMgr/edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,813" />
+      <AbsolutePoint location="136,813" />
+      <AbsolutePoint location="136,850" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/metaauthMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="891,950" />
+      <AbsolutePoint location="891,528" />
+      <AbsolutePoint location="173,528" />
+      <AbsolutePoint location="173,498" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orgUserMgr.do,add,/orgUserMgr/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1915,1134" />
+      <AbsolutePoint location="1915,1174" />
+      <AbsolutePoint location="1704,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgroupMgr.do,add,/authgroupMgr/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="965,834" />
+      <AbsolutePoint location="965,874" />
+      <AbsolutePoint location="816,874" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userMgr/editUser.jsp,null,/userMgr.do,2" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="468,70" />
+      <AbsolutePoint location="468,24" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgrpUserMgr.do,edit,/authgrpUserMgr/edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="769,1334" />
+      <AbsolutePoint location="769,1374" />
+      <AbsolutePoint location="534,1374" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgrpAuthMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="50,1192" />
+      <AbsolutePoint location="-165,1192" />
+      <AbsolutePoint location="-165,474" />
+      <AbsolutePoint location="50,474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orgUserMgr.do,view,/orgUserMgr/view.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1850,1113" />
+      <AbsolutePoint location="1497,1113" />
+      <AbsolutePoint location="1497,1174" />
+      <AbsolutePoint location="1410,1174" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userMgr.do,success,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="210,-18" />
+      <AbsolutePoint location="-315,-18" />
+      <AbsolutePoint location="-315,330" />
+      <AbsolutePoint location="100,330" />
+      <AbsolutePoint location="100,450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userMgr.do,editFail,/userMgr/register.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="514,12" />
+      <AbsolutePoint location="638,12" />
+      <AbsolutePoint location="638,120" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/resMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="950,492" />
+      <AbsolutePoint location="807,492" />
+      <AbsolutePoint location="807,534" />
+      <AbsolutePoint location="139,534" />
+      <AbsolutePoint location="139,498" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgrpAuthMgr.do,edit,/authgrpAuthMgr/edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="309,1234" />
+      <AbsolutePoint location="309,1495" />
+      <AbsolutePoint location="1779,1495" />
+      <AbsolutePoint location="1779,662" />
+      <AbsolutePoint location="1850,662" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orgUserMgr.do,conf,/orgUserMgr/conf.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1975,1050" />
+      <AbsolutePoint location="1975,1013" />
+      <AbsolutePoint location="1030,1013" />
+      <AbsolutePoint location="1030,1150" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgrpUserMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,1292" />
+      <AbsolutePoint location="-105,1292" />
+      <AbsolutePoint location="-105,528" />
+      <AbsolutePoint location="109,528" />
+      <AbsolutePoint location="109,498" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orgUserMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="2043,1134" />
+      <AbsolutePoint location="2043,1413" />
+      <AbsolutePoint location="537,1413" />
+      <AbsolutePoint location="537,378" />
+      <AbsolutePoint location="130,378" />
+      <AbsolutePoint location="130,450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authMgr.do,edit,/authMgr/edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1536,892" />
+      <AbsolutePoint location="1621,892" />
+      <AbsolutePoint location="1621,598" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgroupMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1065,750" />
+      <AbsolutePoint location="1065,713" />
+      <AbsolutePoint location="225,713" />
+      <AbsolutePoint location="225,498" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/logonMgr.do,logonPage,/logon/logon.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="0,0" />
+      <AbsolutePoint location="2218,974" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/metaauthMgr.do,view,/metaauthMgr/view.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="650,1013" />
+      <AbsolutePoint location="315,1013" />
+      <AbsolutePoint location="315,1074" />
+      <AbsolutePoint location="216,1074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgrpAuthMgr.do,conf,/authgrpAuthMgr/conf.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="336,1222" />
+      <AbsolutePoint location="1215,1222" />
+      <AbsolutePoint location="1215,774" />
+      <AbsolutePoint location="1850,774" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orgMgr.do,add,/orgMgr/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1420,650" />
+      <AbsolutePoint location="1420,-165" />
+      <AbsolutePoint location="-75,-165" />
+      <AbsolutePoint location="-75,1013" />
+      <AbsolutePoint location="285,1013" />
+      <AbsolutePoint location="285,474" />
+      <AbsolutePoint location="350,474" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authMgr.do,view,/authMgr/view.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1437,934" />
+      <AbsolutePoint location="1437,1549" />
+      <AbsolutePoint location="-240,1549" />
+      <AbsolutePoint location="-240,974" />
+      <AbsolutePoint location="50,974" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/logonMgr.do,refresh,/logon/refreshFrame.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1081,92" />
+      <AbsolutePoint location="0,0" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orgMgr.do,safeSuc,/common/safeSuccess.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1360,650" />
+      <AbsolutePoint location="1360,413" />
+      <AbsolutePoint location="160,413" />
+      <AbsolutePoint location="160,450" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/userMgr.do,del,/userMgr/del.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="514,-12" />
+      <AbsolutePoint location="861,-12" />
+      <AbsolutePoint location="861,674" />
+      <AbsolutePoint location="786,674" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/orgMgr.do,edit,/orgMgr/edit.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1390,650" />
+      <AbsolutePoint location="1390,374" />
+      <AbsolutePoint location="1086,374" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgrpUserMgr.do,conf,/authgrpUserMgr/conf.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="829,1334" />
+      <AbsolutePoint location="829,1374" />
+      <AbsolutePoint location="1250,1374" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/metaauthMgr.do,add,/metaauthMgr/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="793,1034" />
+      <AbsolutePoint location="793,1074" />
+      <AbsolutePoint location="510,1074" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/resMgr.do,add,/resMgr/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="1060,534" />
+      <AbsolutePoint location="1060,650" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+  <StrutsTransition id="/authgrpUserMgr.do,add,/authgrpUserMgr/add.jsp,1" routingType="0">
+    <AutomaticBendpoints>
+      <AbsolutePoint location="769,1334" />
+      <AbsolutePoint location="769,1579" />
+      <AbsolutePoint location="1939,1579" />
+      <AbsolutePoint location="1939,1398" />
+    </AutomaticBendpoints>
+  </StrutsTransition>
+</FlowViewLayout>
+
