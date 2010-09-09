@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<project name="ssoServer" default="default" basedir=".">
+
+	<property name="src.dir" value="${basedir}\src" />
+	<property name="class.dir" value="${basedir}\bin" />
+
+	<target name="rmi_stub">
+		<rmic base="${class.dir}" sourcebase="${src.dir}">
+			<include name="com/ssoserver/business/authMgr/AuthMgrImp.class" />
+		</rmic>
+	</target>
+	<target name="default" depends="rmi_stub">
+	</target>
+</project>

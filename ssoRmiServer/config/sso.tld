@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+	version="2.1">
+	<description>单点登录系统中用于客户端的标签库</description>
+	<display-name>tuotuo_org sso</display-name>
+	<tlib-version>1.1</tlib-version>
+	<short-name>sso</short-name>
+	<uri>http://java.sun.com/jsp/jstl/sso</uri>
+	<tag>
+		<description>
+			判断当前登录的用户，对于制定资源是否有权限。如果有则显示标签内容，相反的话则不显示
+		</description>
+		<name>CheckPermisstion</name>
+		<tag-class>com.ssoserver.jsp.jtl.CheckPermisstion</tag-class>
+		<body-content>JSP</body-content>
+		<attribute>
+			<description>指定的资源名</description>
+			<name>res</name>
+			<!-- 是否为必须的属性 -->
+			<required>true</required>
+		</attribute>
+	</tag>
+</taglib>
