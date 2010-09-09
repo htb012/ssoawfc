@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<project name="ssoServer" default="copyFile" basedir=".">
+
+	<property name="pj_ms" value="d:\学习\师大软件工程\Java\WorkSpace\pj_ms\config" />
+	<property name="sso" value="d:\学习\师大软件工程\Java\WorkSpace\sso\config" />
+	<property name="ssoRmiserver" value="d:\学习\师大软件工程\Java\WorkSpace\ssoRmiServer\config" />
+	<property name="desktop" value="C:\Users\HTB\Desktop\Conf" />
+
+	<target name="copyFile">
+		<copyfile dest="${desktop}/pj_ms/systemConf.properties" src="${pj_ms}/systemConf.properties" forceoverwrite="true" />
+		<copyfile dest="${desktop}/sso/systemConf.properties" src="${sso}/systemConf.properties" forceoverwrite="true" />
+		<copyfile dest="${desktop}/ssoRmiserver/systemConf.properties" src="${ssoRmiserver}/systemConf.properties" forceoverwrite="true" />
+	</target>
+
+</project>

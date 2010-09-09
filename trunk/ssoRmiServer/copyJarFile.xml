@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<project name="ssoServer" default="copyFile" basedir=".">
+
+	<property name="pj_ms" value="d:\学习\师大软件工程\Java\WorkSpace\pj_ms\WebRoot\WEB-INF\lib" />
+	<property name="sso" value="d:\学习\师大软件工程\Java\WorkSpace\sso\WebRoot\WEB-INF\lib" />
+
+	<target name="copyFile">
+		<copyfile dest="${sso}/ssoClient.jar" src="${pj_ms}/ssoClient.jar" forceoverwrite="true" />
+	</target>
+
+</project>
