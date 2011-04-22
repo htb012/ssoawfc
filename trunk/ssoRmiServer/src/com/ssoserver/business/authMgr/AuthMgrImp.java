@@ -20,6 +20,7 @@ import com.ssoserver.utils.GetPropMessage;
 import com.ssoserver.utils.HqlFactory;
 
 /**
+ * 权限认证管理器的实现
  * @author HTB
  * 
  */
