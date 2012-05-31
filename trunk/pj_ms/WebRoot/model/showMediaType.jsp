@@ -28,7 +28,7 @@
 	<body>
 		<p align="center">
 			<img border="0" src="image/HeinH11.jpg" width="40" height="30">
-			<font size="6" color="#0080ff"> 機種管理</font>
+			<font size="6" color="#0080ff">媒体类型管理</font>
 		</p>
 
 		<table width="1083" height="101" border="1">
@@ -42,22 +42,17 @@
 
 				<th width="168" class="left">
 					<div align="center" class="STYLE5">
-						機種名
-					</div>
-				</th>
-				<th width="168">
-					<div align="center" class="STYLE5">
-						機種写真
+						类型名
 					</div>
 				</th>
 				<th>
 					<div align="center" class="STYLE5">
-						機種概要
+						标识后缀
 					</div>
 				</th>
 				<th>
 					<div align="center" class="STYLE5">
-						社内wikiリンク
+						文件后缀
 					</div>
 				</th>
 				<th>
@@ -66,8 +61,8 @@
 					</div>
 				</th>
 			</tr>
-			<logic:iterate id="model" collection="${modelList}" scope="request"
-				type="jp.co.pegatron.domain.model.Model">
+			<logic:iterate id="mediaType" collection="${mediaTypeList}" scope="request"
+				type="cn.yohan.damain.model.Mediatype">
 				<tr class="question">
 
 					<%-- 					<td class="left">	--%>
@@ -75,37 +70,34 @@
 					<%-- 					</td>	--%>
 
 					<td class="left">
-						${model.modelname}&nbsp;
+						${mediaType.mediaTypeName}&nbsp;
 					</td>
 					<td>
-						${model.modelphoto}&nbsp;
+						${mediaType.fileNameSuffix}&nbsp;
 					</td>
 					<td>
-						${model.parameter}&nbsp;
-					</td>
-					<td>
-						<a href="${model.linkmark}" target="_blank">${model.linkmark}</a>&nbsp;
+						${mediaType.fileSuffix}&nbsp;
 					</td>
 					<td>
 						<input type="button" value="編集" id="編集"
-							onclick="openwindow('modelMgr.do?modelid=${model.modelid}&task=edit','詳細',2)">
+							onclick="openwindow('mediaTypeMgr.do?mediaTypeid=${mediaType.mediaTypeId}&task=edit','詳細',2)">
 
 						<input type="button" value="削除" id="削除"
-							onclick="del_par1('formDel','modelid','${model.modelid}')">
+							onclick="del_par1('formDel','mediaTypeid','${mediaType.mediaTypeId}')">
 					</td>
 				</tr>
 			</logic:iterate>
 			<tr>
 				<td class="left" colspan="10" align="left">
 					<input type="button" value="追加" id="追加"
-						onclick="openwindow('model/add.jsp','追加',2)">
+						onclick="openwindow('mediaType/add.jsp','追加',2)">
 				</td>
 			</tr>
 		</table>
 		<p>
 			&nbsp;
 		</p>
-		<form action="modelMgr.do" id="formPage" name="formPage" method="get">
+		<form action="mediaTypeMgr.do" id="formPage" name="formPage" method="get">
 			<input type="hidden" id="formPageViewTask" name="task" value="view">
 			<input type="hidden" id="formPageViewScope" name="scope"
 				value="${scope}">
@@ -114,7 +106,7 @@
 				pginfo.write();
 			</script>
 		</form>
-		<form action="modelMgr.do" id="formDel" name="formDel" method="get">
+		<form action="mediaTypeMgr.do" id="formDel" name="formDel" method="get">
 			<input type="hidden" id="delTask" name="task" value="delete">
 			<input type="hidden" id="formDelViewScope" name="scope"
 				value="${scope}">
