@@ -21,9 +21,9 @@
 
 	<body>
 		&nbsp;
-		<div align="center">
+		<!-- <div align="center">
 			<script type="text/javascript">time();</script>
-		</div>
+		</div> -->
 		<div align="center">
 			<em><br> <font color="#408080"><strong></strong> </font> </em>
 			<img border="0" src="image/Favourites.jpg">
