@@ -2561,7 +2561,7 @@ DISPNAMEFont=Arial Unicode MS,8,N漀࣒ter=濴࣒[CRLF]Ke瀀࣒ siz瀌࣒炈࣒[
 DISPNAMEFont color=0, 0, 0
 ViewColumnnFont=Arial Unicode MS,8,N甀獥整㵤教൳ഊ嬊潆摬牥灏楴湯屳桃捥䵫摯汥䑜瑡⁡瑉浥䥜普乯瑯獕摥൝䌊敨正敓敶楲祴夽獥਍楆剸煥敵瑳摥丽൯䌊敨正敒畱獥整㵤教൳ഊ嬊潆摬
 ViewColumnnFont color=0, 0, 0
-ViewIndexesFont=Arial Unicode MS,8,N椀祴൝ഊ嬊潆摬牥灏楴湯屳桃捥䵫摯汥䕜瑮瑩屹湕煩敵慎敭൝䌊敨正敓敶楲祴丽൯䘊硩敒畱獥整㵤潎਍桃捥剫煥敵瑳摥夽獥਍਍䙛汯敤佲瑰潩獮䍜
+ViewIndexesFont=Arial Unicode MS,8,N椀祴൝ഊ嬊潆摬牥灏楴湯屳桃捥䵫摯汥䕜瑮瑩屹湕煩敵慎敭൝䌊敨正敓敶楲祴丽൯䘊硩敒畱獥整㵤潎਍桃捥剫煥敵瑳摥夽獥�����਍䙛汯敤佲瑰潩獮䍜
 ViewIndexesFont color=0, 0, 0
 ViewTablesFont=Arial Unicode MS,8,N
 ViewTablesFont color=0, 0, 0
@@ -2825,9 +2825,12 @@ Shadow=0
 <a:PaperSource>1</a:PaperSource>
 <c:Symbols>
 <o:ReferenceSymbol Id="o6">
-<a:CenterTextOffset>(0, 1)</a:CenterTextOffset>
-<a:Rect>((7741,-16060), (18815,-9684))</a:Rect>
-<a:ListOfPoints>((7741,-16060),(18815,-9684))</a:ListOfPoints>
+<a:ModificationDate>1340357301</a:ModificationDate>
+<a:CenterTextOffset>(0, 4)</a:CenterTextOffset>
+<a:SourceTextOffset>(-23, 40)</a:SourceTextOffset>
+<a:DestinationTextOffset>(23, -40)</a:DestinationTextOffset>
+<a:Rect>((7741,-16060), (24290,-7359))</a:Rect>
+<a:ListOfPoints>((7741,-16060),(24290,-7359))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>16711680</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2844,7 +2847,7 @@ CARD 0 Arial Unicode MS,8,N</a:FontList>
 </c:Object>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o10">
-<a:CenterTextOffset>(0, 1)</a:CenterTextOffset>
+<a:CenterTextOffset>(0, 2)</a:CenterTextOffset>
 <a:Rect>((-3332,-22436), (7891,-15910))</a:Rect>
 <a:ListOfPoints>((7891,-15910),(-3332,-22436))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
@@ -2864,7 +2867,7 @@ CARD 0 Arial Unicode MS,8,N</a:FontList>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o13">
 <a:ModificationDate>1340289715</a:ModificationDate>
-<a:CenterTextOffset>(1, 0)</a:CenterTextOffset>
+<a:CenterTextOffset>(3, 0)</a:CenterTextOffset>
 <a:SourceTextOffset>(68, 22)</a:SourceTextOffset>
 <a:Rect>((-22091,10836), (-9066,28497))</a:Rect>
 <a:ListOfPoints>((-9066,10836),(-15236,27873),(-22091,25231))</a:ListOfPoints>
@@ -2905,10 +2908,10 @@ CARD 0 Arial Unicode MS,8,N</a:FontList>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o20">
 <a:ModificationDate>1340289715</a:ModificationDate>
-<a:CenterTextOffset>(4, 0)</a:CenterTextOffset>
+<a:CenterTextOffset>(6, 0)</a:CenterTextOffset>
 <a:SourceTextOffset>(-51, -3)</a:SourceTextOffset>
 <a:DestinationTextOffset>(50, 3)</a:DestinationTextOffset>
-<a:Rect>((-11622,1272), (-4498,15246))</a:Rect>
+<a:Rect>((-11620,1272), (-4496,15246))</a:Rect>
 <a:ListOfPoints>((-7899,1272),(-8346,15246))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>16711680</a:LineColor>
@@ -2927,10 +2930,10 @@ CARD 0 Arial Unicode MS,8,N</a:FontList>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o23">
 <a:ModificationDate>1340289714</a:ModificationDate>
-<a:CenterTextOffset>(4, 0)</a:CenterTextOffset>
+<a:CenterTextOffset>(6, 2)</a:CenterTextOffset>
 <a:SourceTextOffset>(10, 0)</a:SourceTextOffset>
 <a:DestinationTextOffset>(-11, 0)</a:DestinationTextOffset>
-<a:Rect>((-10879,-9402), (-4205,1422))</a:Rect>
+<a:Rect>((-10876,-9402), (-4202,1422))</a:Rect>
 <a:ListOfPoints>((-7749,1422),(-7228,-9402))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>16711680</a:LineColor>
@@ -2949,7 +2952,7 @@ CARD 0 Arial Unicode MS,8,N</a:FontList>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o26">
 <a:ModificationDate>1340289714</a:ModificationDate>
-<a:CenterTextOffset>(0, 4)</a:CenterTextOffset>
+<a:CenterTextOffset>(0, 6)</a:CenterTextOffset>
 <a:SourceTextOffset>(-21, 0)</a:SourceTextOffset>
 <a:DestinationTextOffset>(22, 0)</a:DestinationTextOffset>
 <a:Rect>((-11672,-23292), (-4022,-7099))</a:Rect>
@@ -2970,9 +2973,11 @@ CARD 0 Arial Unicode MS,8,N</a:FontList>
 </c:Object>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o28">
-<a:CenterTextOffset>(0, 1)</a:CenterTextOffset>
-<a:Rect>((7312,-4881), (16408,-3308))</a:Rect>
-<a:ListOfPoints>((7312,-4694),(16408,-4610))</a:ListOfPoints>
+<a:ModificationDate>1340357301</a:ModificationDate>
+<a:SourceTextOffset>(16, -185)</a:SourceTextOffset>
+<a:DestinationTextOffset>(-16, 184)</a:DestinationTextOffset>
+<a:Rect>((7312,-4694), (21883,-2285))</a:Rect>
+<a:ListOfPoints>((7312,-4694),(21883,-2285))</a:ListOfPoints>
 <a:ArrowStyle>1</a:ArrowStyle>
 <a:LineColor>16711680</a:LineColor>
 <a:ShadowColor>12632256</a:ShadowColor>
@@ -2990,6 +2995,7 @@ CARD 0 Arial Unicode MS,8,N</a:FontList>
 </o:ReferenceSymbol>
 <o:ReferenceSymbol Id="o31">
 <a:ModificationDate>1340289714</a:ModificationDate>
+<a:CenterTextOffset>(0, 2)</a:CenterTextOffset>
 <a:SourceTextOffset>(-156, 562)</a:SourceTextOffset>
 <a:DestinationTextOffset>(156, -562)</a:DestinationTextOffset>
 <a:Rect>((-2100,-9579), (7462,-4544))</a:Rect>
@@ -3048,7 +3054,8 @@ TableComment 0 Arial Unicode MS,8,N</a:FontList>
 </c:Object>
 </o:TableSymbol>
 <o:TableSymbol Id="o8">
-<a:Rect>((12580,-17339), (25352,-2755))</a:Rect>
+<a:ModificationDate>1340357301</a:ModificationDate>
+<a:Rect>((18055,-15014), (30827,-430))</a:Rect>
 <a:AutoAdjustToText>0</a:AutoAdjustToText>
 <a:LineColor>16711680</a:LineColor>
 <a:FillColor>12648384</a:FillColor>
