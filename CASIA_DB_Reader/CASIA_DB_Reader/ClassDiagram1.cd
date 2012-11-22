@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CASIA_DB_Reader.DBLoader" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAACAAAAAAAAAAAAAAAAAIAAYAAAA=</HashCode>
+      <FileName>DBLoader.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CASIA_DB_Reader.CASIA_DB_Loader" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DQAEAAAAACAAAAIAAACCQAACCQAAAAgAAgAAAQAIAAA=</HashCode>
+      <FileName>DBReaderFrom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.dgrLoader" Collapsed="true">
+    <Position X="7.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAEAAAIAAAAAAACAAAAAAAAAAABAAAAAAAAAQAAA=</HashCode>
+      <FileName>dgrLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.dicFileLoader" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQCAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>dicFileLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.Drawer" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACCAAAAAAAAAAAoAAAAAAAAAAAgAAAAAAAAQAAA=</HashCode>
+      <FileName>Drawer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.FileManager" Collapsed="true">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAQCAAAAAAAAAAAAAAAIAAAiAAAAA=</HashCode>
+      <FileName>FileManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.GntLoader" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAACAACAAAAAQAAAAAAYAAAAIAAAA=</HashCode>
+      <FileName>GntLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.pFileLoader" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAMAAAAAAAAAAAAAAAAQAAAAAAIAAAIIAAAA=</HashCode>
+      <FileName>pFileLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.point" Collapsed="true">
+    <Position X="5.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABgAAAAYAA=</HashCode>
+      <FileName>point.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.potLoader" Collapsed="true">
+    <Position X="1.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAIAAAACAAGgAAAAAAAQAAAAQAIAAEAIAAAA=</HashCode>
+      <FileName>potLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.potPattern" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAEAAiAAAAAgAAABAAEAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>potPattern.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.POTTool" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAQAAAAAAAAAEAQABAAAAQAAAAAAAAA=</HashCode>
+      <FileName>POTTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.preProcess" Collapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAJAASEAAAAIAAAQAAAAAg4AAAAAAAAQ=</HashCode>
+      <FileName>preProcess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.Program" Collapsed="true">
+    <Position X="15.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.PttsLoader" Collapsed="true">
+    <Position X="0.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAgAIgAEAAAAEAAAAAIAAQAAAAAAIAAAAIAAAA=</HashCode>
+      <FileName>PTTSLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.TEHONLoader" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAACAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>TEHONLoader.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.tehonPattern" Collapsed="true">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAABAAAICAAAAAAAAAABABIA=</HashCode>
+      <FileName>tehonPattern.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.tPoint" Collapsed="true">
+    <Position X="5.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>tehonPattern.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.test" Collapsed="true">
+    <Position X="2.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAEAAAAAAAgAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>test.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.tranformToNewP" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAIAAAgAAAEAAAAAAAAFAEAAAAAAAAAAA=</HashCode>
+      <FileName>tranformToNewP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.transformFile" Collapsed="true">
+    <Position X="1.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAEEAAAAAAACAgCAAAAAAQgAAAAEAAAAAAACAAQg=</HashCode>
+      <FileName>transformFile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.Properties.Resources" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CASIA_DB_Reader.Properties.Settings" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="CASIA_DB_Reader.DBReader" Collapsed="true">
+    <Position X="10" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAACAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>DBReader.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="メイリオ" Size="9" />
+</ClassDiagram>
