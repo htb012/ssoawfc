@@ -223,6 +223,12 @@ namespace CASIA_DB_Reader
             }
             pat.horGridLine = horGridLine.ToList();
             pat.verGridLine = verGridLine.ToList();
+            extractFeature test = new extractFeature();
+            double[] feature = test.getFeature(pat);
+            for (int i = 0; i < feature.Length; i++) {
+               Console.Write(feature[i]+",");
+            }
+            Console.WriteLine();
         }
 
         /// <summary>

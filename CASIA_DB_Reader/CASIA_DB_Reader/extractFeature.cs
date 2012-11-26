@@ -20,8 +20,12 @@ namespace CASIA_DB_Reader
             dir = new double[] {0,Math.PI*0.25,Math.PI*0.5,Math.PI*0.75};
         }
 
-        public int[] getFeature(CharPattern  pat) {
-            int[] feature = new int[512];
+        public void writeFeatureFile(string fileName) { 
+            
+        }
+
+        public double[] getFeature(CharPattern  pat) {
+            double[] feature = new double[256];
             int xm, ym;
             int xs = 0, ys=0;
             for (int i = 0; i < pat.horGridLine.Count; i++)
@@ -31,13 +35,12 @@ namespace CASIA_DB_Reader
                 {
                     xm = (xs + pat.verGridLine[i]) / 2;
 
-                    gabor(xm, ym, pat);
-                    
+                    feature[i*POTTool.GRIDNUM+j] = gabor(xm, ym, pat);
                     xs = pat.verGridLine[i];
                 }
                 ys = pat.horGridLine[i];
             }
-            return null;
+            return feature;
         }
 
         public double gabor(int x, int y, CharPattern pat) {
@@ -48,13 +51,12 @@ namespace CASIA_DB_Reader
                     double dic = (p.x - x) * (p.x - x) + (p.y - y) * (p.y - y);
                     if (dic < 100) { 
                         for(int i =0;i<dir.Length;i++){
-                        
+                            feature += G(p.x - x, p.y - y, 5, dir[i]);
                         }
-                        double g = G(p.x - x, p.y - y, 5, dic[i]);
                     }
                 }
             }
-            
+            return feature;
         }
 
         public double G(int x, int y, int iota, double dir) {
