@@ -34,8 +34,10 @@ namespace CASIA_DB_Reader
                 for (int j = 0; j < pat.verGridLine.Count; j++)
                 {
                     xm = (xs + pat.verGridLine[i]) / 2;
-
-                    feature[i*POTTool.GRIDNUM+j] = gabor(xm, ym, pat);
+                    double[] subFeature = gabor(xm, ym, pat);
+                    for (int i = 0; i < subFeature.Length; i++){
+                        feature[i * POTTool.GRIDNUM * dir.Length + j * dir.Length + i] = subFeature[i];
+                    }
                     xs = pat.verGridLine[i];
                 }
                 ys = pat.horGridLine[i];
@@ -43,17 +45,21 @@ namespace CASIA_DB_Reader
             return feature;
         }
 
-        public double gabor(int x, int y, CharPattern pat) {
-            double feature = 0;
-            foreach (Stroke stroke in pat.strokes)
+        public double[] gabor(int x, int y, CharPattern pat) {
+            double[] feature = new double[dir.Length];
+            for (int i = 0; i < dir.Length; i++)
             {
-                foreach(point p in stroke.points){
-                    double dic = (p.x - x) * (p.x - x) + (p.y - y) * (p.y - y);
-                    if (dic < 100) { 
-                        for(int i =0;i<dir.Length;i++){
-                            feature += G(p.x - x, p.y - y, 5, dir[i]);
+                foreach (Stroke stroke in pat.strokes)
+                {
+                    foreach (point p in stroke.points)
+                    {
+                        double dic = (p.x - x) * (p.x - x) + (p.y - y) * (p.y - y);
+                        if (dic < 100)
+                        {
+                            feature[i] += G(p.x - x, p.y - y, 5, dir[i]);
                         }
                     }
+
                 }
             }
             return feature;
