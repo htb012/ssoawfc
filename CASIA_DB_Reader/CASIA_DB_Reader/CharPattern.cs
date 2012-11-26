@@ -13,6 +13,8 @@ namespace CASIA_DB_Reader
         public string tagCode { get; set; }
         public ushort strokeNum { get; set; }
         public  List<Stroke> strokes{ get; set; }
+        public List<int> horGridLine { get; set; }
+        public List<int> verGridLine { get; set; }
         /// <summary>
         /// 是否已经获取边界
         /// </summary>

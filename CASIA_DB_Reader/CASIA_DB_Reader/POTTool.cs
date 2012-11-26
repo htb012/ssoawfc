@@ -153,17 +153,35 @@ namespace CASIA_DB_Reader
             }
         }
 
+        //绘制网络线
+        public static void drawElasticMeshing(Graphics graphics, ref CharPattern pat) {
+            //获取弹性网格线
+            elasticMeshing(ref pat);
+            //绘制网格线
+            Pen pen = new Pen(Color.Black);
+            foreach (int value in pat.horGridLine)
+            {
+                graphics.DrawLine(pen, 0, value, WIDTH, value);
+            }
+            foreach (int value in pat.verGridLine)
+            {
+                graphics.DrawLine(pen, value, 0, value, LENGTH);
+            }
+        }
+
         //绘制弹性网格的网线
-        public static void elasticMeshing(Graphics graphics, ref CharPattern pat) {
+        public static void elasticMeshing(ref CharPattern pat) {
             Rectangle rec = getBoundary(pat);
             int[] horGridLine = new int[GRIDNUM-1];//横向网格线
             int[] verGridLine = new int[GRIDNUM-1];//纵向网格线
 
+            //投影
             double[] prox = new double[rec.Right + 1];
             double[] proy = new double[rec.Bottom + 1];
-
+            //获取投影
             getProjection(pat.strokes, ref prox, ref proy);
             double xGrandTotal=0, yGrandTotal=0;
+            //计算X轴和Y轴的投影总值
             foreach (double value in prox) {
                 xGrandTotal += value;
             }
@@ -171,11 +189,14 @@ namespace CASIA_DB_Reader
             {
                 yGrandTotal += value;
             }
+            //纵向网格的投影平均值
             double xGrandAve = xGrandTotal/GRIDNUM;
+            //横向网格的投影平均值
             double yGrandAve = yGrandTotal/GRIDNUM;
 
             int GridLineIndex = 0;
             xGrandTotal = 0;
+            //划分纵向网格线的位置
             for (int i = 0; i <= rec.Right; i++) {
                 xGrandTotal += prox[i];
                 if (xGrandTotal >= (GridLineIndex + 1) * xGrandAve) {
@@ -185,6 +206,7 @@ namespace CASIA_DB_Reader
                     break;
                 }
             }
+            //划分横向网格线的位置
             GridLineIndex = 0;
             yGrandTotal = 0;
             for (int i = 0; i <= rec.Bottom; i++)
@@ -199,16 +221,8 @@ namespace CASIA_DB_Reader
                     break;
                 }
             }
-
-            Pen pen = new Pen(Color.Black);
-            foreach (int value in horGridLine)
-            {
-                graphics.DrawLine(pen, 0, value, WIDTH, value);
-            }
-            foreach (int value in verGridLine)
-            {
-                graphics.DrawLine(pen,  value,0, value,LENGTH);
-            }
+            pat.horGridLine = horGridLine.ToList();
+            pat.verGridLine = verGridLine.ToList();
         }
 
         /// <summary>

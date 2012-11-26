@@ -52,7 +52,7 @@ namespace CASIA_DB_Reader
             POTTool.pointComplement(ref pat);//短缺点补足
             POTTool.translational(ref pat);
             POTTool.reSize(ref pat);
-            POTTool.elasticMeshing(graphics, ref pat);
+            POTTool.drawElasticMeshing(graphics, ref pat);
             point prePoint, nextPoint;
             foreach (Stroke stroke in pat.strokes)
             {
