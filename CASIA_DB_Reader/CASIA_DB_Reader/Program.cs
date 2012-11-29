@@ -40,7 +40,7 @@ namespace CASIA_DB_Reader
 
             //测试dic文件的正确性
             //dicFileLoader dic = new dicFileLoader();
-            //dic.readDicFile("z://Test0cc.ft2");
+            //dic.readDicFile("z:\\shixi\\trainFea.ft2");
 
             //test.tt();
 
@@ -52,7 +52,11 @@ namespace CASIA_DB_Reader
             ////pot文件转转换为TEHONE格式的newP文件
 
             //tranformToNewP tranform = new tranformToNewP(args[0], args[1], args[2]);
-            //tranform.tranform(args[3], Convert.ToSingle(args[4]));
+            //tranform.tranform(args[3], Convert.ToSingle(args[4]), args[5]);
+
+
+            //特征提取
+
 
 
             //test t = new test();
