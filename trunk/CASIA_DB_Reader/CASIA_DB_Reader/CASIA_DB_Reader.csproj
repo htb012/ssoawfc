@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="extractFeature.cs" />
+    <Compile Include="PatternTool.cs" />
     <Compile Include="Stroke.cs" />
     <Compile Include="DBLoader.cs" />
     <Compile Include="DBReader.cs" />

@@ -22,7 +22,24 @@ namespace CASIA_DB_Reader
             int classNum = br.ReadInt32();
             Console.WriteLine("classNum="+classNum);
             int dim = br.ReadInt32();
-            int dimTo = br.ReadInt32();
+            Console.WriteLine("dim=" + dim);
+            int count,data;
+            while (fs.CanRead)
+            {
+                count = br.ReadInt32();
+                Console.WriteLine("count=" + count);
+                for (int i = 0; i < count; i++)
+                {
+                    for (int j = 0; j < dim; j++)
+                    {
+                        data = br.ReadInt16();
+                        //Console.Write(",data[" + j + "]=" + data);
+                        Console.Write(data+",");
+                    }
+                    Console.WriteLine();
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
