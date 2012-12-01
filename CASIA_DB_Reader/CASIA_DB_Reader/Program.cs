@@ -14,9 +14,9 @@ namespace CASIA_DB_Reader
         static void Main(string[] args)
         {
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CASIA_DB_Loader());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new CASIA_DB_Loader());
 
             //DBReader loader = new dgrLoader();
             //loader.load("D:\\006-P16.dgr");
@@ -51,8 +51,8 @@ namespace CASIA_DB_Reader
             ////args[4] 
             ////pot文件转转换为TEHONE格式的newP文件
 
-            //tranformToNewP tranform = new tranformToNewP(args[0], args[1], args[2]);
-            //tranform.tranform(args[3], Convert.ToSingle(args[4]), args[5]);
+            tranformToNewP tranform = new tranformToNewP(args[0], args[1], args[2]);
+            tranform.tranform(args[3], Convert.ToSingle(args[4]), args[5]);
 
 
             //特征提取

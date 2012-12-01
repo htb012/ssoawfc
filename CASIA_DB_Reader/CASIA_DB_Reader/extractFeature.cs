@@ -57,22 +57,40 @@ namespace CASIA_DB_Reader
             double[] feature = new double[PatternTool.GRIDNUM * PatternTool.GRIDNUM * dir.Length];
             int xm, ym;
             int xs = 0, ys=0;
-            for (int i = 0; i < pat.horGridLine.Count; i++)
+            for (int i = 0; i < pat.horGridLine.Count+1; i++)
             {
-                ym = (ys + pat.horGridLine[i]) / 2;
-                for (int j = 0; j < pat.verGridLine.Count; j++)
+                if (i < pat.horGridLine.Count)
                 {
-                    xm = (xs + pat.verGridLine[i]) / 2;
+                    ym = (ys + pat.horGridLine[i]) / 2;
+                }
+                else { 
+                    ym = ( pat.horGridLine[i-1]+pat.boundary.Bottom)/2;
+                }
+                for (int j = 0; j < pat.verGridLine.Count+1; j++)
+                {
+                    if (j < pat.verGridLine.Count)
+                    {
+                        xm = (xs + pat.verGridLine[j]) / 2;
+                    }
+                    else {
+                        xm = (pat.verGridLine[j - 1] + pat.boundary.Height) / 2;
+                    }
                     double[] subFeature = gabor(xm, ym, pat);
-                    Console.WriteLine("subFeature.Length=" + subFeature.Length + ",");
+                    //Console.WriteLine("subFeature.Length=" + subFeature.Length + ",");
                     for (int k = 0; k < subFeature.Length; k++){
                         int index = i * PatternTool.GRIDNUM * dir.Length + j * dir.Length + k;
-                        Console.Write(index+",");
+                        //Console.Write(index+",");
                         feature[i * PatternTool.GRIDNUM * dir.Length + j * dir.Length + k] = subFeature[k];
                     }
-                    xs = pat.verGridLine[i];
+                    if (j < pat.verGridLine.Count)
+                    {
+                        xs = pat.verGridLine[j];
+                    }
                 }
-                ys = pat.horGridLine[i];
+                if (i < pat.horGridLine.Count)
+                {
+                    ys = pat.horGridLine[i];
+                }
             }
             return feature;
         }
