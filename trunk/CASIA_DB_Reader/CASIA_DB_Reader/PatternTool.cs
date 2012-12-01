@@ -14,7 +14,7 @@ namespace CASIA_DB_Reader
     /// </summary>
     class PatternTool
     {
-        public const short GRIDNUM = 8;
+        public const short GRIDNUM = 8;//8个网格数，7条网格线
         //绘制网络线
         public static void drawElasticMeshing(Graphics graphics, ref CharPattern pat)
         {
@@ -65,14 +65,16 @@ namespace CASIA_DB_Reader
             for (int i = 0; i <= rec.Right; i++)
             {
                 xGrandTotal += prox[i];
-                if (xGrandTotal >= (GridLineIndex + 1) * xGrandAve)
+                int currentIndex = (int)(xGrandTotal / xGrandAve) - 1;
+                while ( GridLineIndex < currentIndex)
                 {
                     verGridLine[GridLineIndex++] = i;
+                    if (GridLineIndex >= GRIDNUM - 1)
+                    {
+                        break;
+                    }
                 }
-                if (GridLineIndex >= GRIDNUM - 1)
-                {
-                    break;
-                }
+
             }
             //划分横向网格线的位置
             GridLineIndex = 0;
