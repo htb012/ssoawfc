@@ -19,6 +19,7 @@ namespace CASIA_DB_Reader
         public static double minFeatureValue = 0;
         public FileStream outputStream;
         public BinaryWriter output;
+        public static int featureNum =0;
 
         public extractFeature(string fileName)
         { 
@@ -31,18 +32,21 @@ namespace CASIA_DB_Reader
 
         //向特征文件中写入文件头信息（文字类的总数，最大维度数）
         public void writeFeatureFileMeta(int cate) {
-            output.Write(cate);
-            output.Write(PatternTool.GRIDNUM * PatternTool.GRIDNUM * dir.Length);
+            output.Write((Int32)cate);
+            int dim = PatternTool.GRIDNUM * PatternTool.GRIDNUM * dir.Length;
+            output.Write((Int32)dim);
         }
 
         //向特征文件中写入一个int数据
         public void writeIntDate(int data) {
-            output.Write(data);
+            output.Write((Int32)data);
         }
 
         public void wirteFeatureValue(double[] feature) {
             foreach (double fea in feature) {
-                output.Write((short)fea);
+                short feaShort = (short)fea;
+                output.Write((short)feaShort);
+                featureNum++;
             }
         }
 
@@ -59,6 +63,7 @@ namespace CASIA_DB_Reader
             int xs = 0, ys=0;
             for (int i = 0; i < pat.horGridLine.Count+1; i++)
             {
+                //单元格的Y轴中间值
                 if (i < pat.horGridLine.Count)
                 {
                     ym = (ys + pat.horGridLine[i]) / 2;
@@ -68,13 +73,15 @@ namespace CASIA_DB_Reader
                 }
                 for (int j = 0; j < pat.verGridLine.Count+1; j++)
                 {
+                    //单元格的x轴中间值
                     if (j < pat.verGridLine.Count)
                     {
                         xm = (xs + pat.verGridLine[j]) / 2;
                     }
                     else {
-                        xm = (pat.verGridLine[j - 1] + pat.boundary.Height) / 2;
+                        xm = (pat.verGridLine[pat.verGridLine.Count - 1] + pat.boundary.Height) / 2;
                     }
+                    //获得单元格中心点(xm,ym)的gabor特征值
                     double[] subFeature = gabor(xm, ym, pat);
                     //Console.WriteLine("subFeature.Length=" + subFeature.Length + ",");
                     for (int k = 0; k < subFeature.Length; k++){
@@ -104,15 +111,15 @@ namespace CASIA_DB_Reader
                     foreach (point p in stroke.points)
                     {
                         double dis = (p.x - x) * (p.x - x) + (p.y - y) * (p.y - y);
-                        if (dis < DISTANCE)
-                        {
+                        //if (dis < DISTANCE)
+                        //{
                             for (int i = 0; i < dir.Length; i++)
                             {
-                                feature[i] += 500 * G(p.x - x, p.y - y, 5, dir[i]);
+                                feature[i] += 255 * G(p.x - x, p.y - y, 5, dir[i]);
                                 maxFeatureValue = feature[i] > maxFeatureValue ? feature[i] : maxFeatureValue;
                                 minFeatureValue = feature[i] < minFeatureValue ? feature[i] : minFeatureValue;
                             }
-                        }
+                        //}
                     }
             }
             return feature;
