@@ -8,8 +8,8 @@ namespace CASIA_DB_Reader
 {
     class extractFeature
     {
-        public const int DISTANCE = 200;
-        public const int IOTA = 5;
+        public const int DISTANCE = 5000;
+        public const int IOTA = 500;
         public const double THETA = Math.PI;
         public double lambda = 2 * Math.PI / IOTA;
         public double lamda2;
@@ -25,7 +25,7 @@ namespace CASIA_DB_Reader
         { 
             lamda2 = lambda * lambda;
             theta2 = THETA * THETA;
-            dir = new double[] { 0, Math.PI * 0.25, Math.PI * 0.5, Math.PI * 0.75, Math.PI, Math.PI * 1.25, Math.PI * 1.5, Math.PI * 1.75};
+            dir = new double[] { 0, Math.PI * 0.125, Math.PI * 0.25, Math.PI * 0.375, Math.PI * 0.5, Math.PI * 0.625, Math.PI * 0.75, Math.PI * 0.875};
             outputStream = File.Open(fileName, FileMode.Create);
             output = new BinaryWriter(outputStream);
         }
@@ -111,15 +111,15 @@ namespace CASIA_DB_Reader
                     foreach (point p in stroke.points)
                     {
                         double dis = (p.x - x) * (p.x - x) + (p.y - y) * (p.y - y);
-                        //if (dis < DISTANCE)
-                        //{
+                        if (dis < DISTANCE)
+                        {
                             for (int i = 0; i < dir.Length; i++)
                             {
                                 feature[i] += 255 * G(p.x - x, p.y - y, 5, dir[i]);
                                 maxFeatureValue = feature[i] > maxFeatureValue ? feature[i] : maxFeatureValue;
                                 minFeatureValue = feature[i] < minFeatureValue ? feature[i] : minFeatureValue;
                             }
-                        //}
+                        }
                     }
             }
             return feature;
