@@ -73,7 +73,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="extractFeature.cs" />
+    <Compile Include="GaborFeatureExtraction.cs" />
     <Compile Include="PatternTool.cs" />
     <Compile Include="Stroke.cs" />
     <Compile Include="DBLoader.cs" />
