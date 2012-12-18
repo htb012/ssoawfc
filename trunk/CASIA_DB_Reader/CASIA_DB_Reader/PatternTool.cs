@@ -21,7 +21,7 @@ namespace CASIA_DB_Reader
             //获取弹性网格线
             elasticMeshing(ref pat);
             //绘制网格线
-            Pen pen = new Pen(Color.Black);
+            Pen pen = new Pen(Color.Green);
             foreach (int value in pat.horGridLine)
             {
                 graphics.DrawLine(pen, 0, value, POTTool.WIDTH, value);

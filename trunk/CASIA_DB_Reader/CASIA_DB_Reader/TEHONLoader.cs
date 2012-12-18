@@ -45,11 +45,12 @@ namespace CASIA_DB_Reader
         public override System.Drawing.Image nextChar()
         {
             CharPattern pat = this.next();
-            Pen pen = new Pen(Color.Gray);
+            Pen pen = new Pen(Color.Black,3);
             Bitmap bmp = new Bitmap(WIDTH_PX, HEIGHT_PX);
             Graphics graphics = Graphics.FromImage(bmp);     //创建该位图的Graphics对象
 
             POTTool.pointComplement(ref pat);//短缺点补足
+            //POTTool.normaliztion(ref pat);//切除长尾巴
             POTTool.translational(ref pat);
             POTTool.reSize(ref pat);
             PatternTool.drawElasticMeshing(graphics, ref pat);
