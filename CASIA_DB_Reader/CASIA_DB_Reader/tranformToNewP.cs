@@ -303,7 +303,7 @@ namespace CASIA_DB_Reader
                 }
             }
             extFea.closeFeatureFile();
-            Console.WriteLine("pattern count = " + patCount + ",strokeNum = " + strokeNum + ",feaNum" + extractFeature.featureNum + "," + extractFeature.maxFeatureValue + "," + extractFeature.minFeatureValue);
+           // Console.WriteLine("pattern count = " + patCount + ",strokeNum = " + strokeNum + ",feaNum" + extractFeature.featureNum + "," + extractFeature.maxFeatureValue + "," + extractFeature.minFeatureValue);
         }
 
         /// <summary>
