@@ -10,8 +10,9 @@ namespace CASIA_DB_Reader
     {
         public  const int NUMDIR = 8;
         public const double NU = 2;
-        public const double BETA = 1.177;
+        public const double BETA = 1;
         public double deltaX;
+        public double deltaY;
         public const int DISTANCE = 500;
         public FileStream outputStream;
         public BinaryWriter output;
@@ -67,10 +68,12 @@ namespace CASIA_DB_Reader
                 if (i < pat.horGridLine.Count)
                 {
                     ym = (ys + pat.horGridLine[i]) / 2;
+                    deltaY = pat.horGridLine[i] - ys;
                 }
                 else
                 {
                     ym = (pat.horGridLine[i - 1] + pat.boundary.Bottom) / 2;
+                    deltaY = pat.boundary.Bottom - pat.horGridLine[i - 1];
                 }
                 for (int j = 0; j < pat.verGridLine.Count + 1; j++)
                 {
@@ -85,6 +88,8 @@ namespace CASIA_DB_Reader
                         xm = (pat.verGridLine[pat.verGridLine.Count - 1] + pat.boundary.Height) / 2;
                         deltaX = pat.boundary.Height - pat.verGridLine[pat.verGridLine.Count - 1];
                     }
+                    deltaX = (deltaX + deltaY) / 2;
+                    Console.WriteLine("deltaX=" + deltaX + ",");
                     //获得单元格中心点(xm,ym)的gabor特征值
                     double[] subFeature = gaborFeatures(xm, ym, pat);
                     //Console.WriteLine("subFeature.Length=" + subFeature.Length + ",");
