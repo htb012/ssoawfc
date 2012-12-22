@@ -37,6 +37,7 @@ namespace CASIA_DB_Reader
                 Rectangle rec = getBoundary(pat);
                 translational(pat.strokes, rec);
                 pat.isBoundary = false;
+                getBoundary(pat);
             }
         }
 
@@ -76,6 +77,8 @@ namespace CASIA_DB_Reader
                 pat.isResize = true;
                 Rectangle rec = getBoundary(pat);
                 reSize(pat.strokes, rec);
+                pat.isBoundary = false;
+                getBoundary(pat);
             }
         }
 
@@ -104,6 +107,7 @@ namespace CASIA_DB_Reader
                     point.y = (short)(point.y * rate);
                 }
             }
+
         }
 
         /// <summary>
