@@ -69,12 +69,11 @@ namespace CASIA_DB_Reader
                 while ( GridLineIndex < currentIndex)
                 {
                     verGridLine[GridLineIndex++] = i;
-                    if (GridLineIndex >= GRIDNUM - 1)
-                    {
-                        break;
-                    }
                 }
-
+                if (GridLineIndex >= GRIDNUM - 1)
+                {
+                    break;
+                }
             }
             //划分横向网格线的位置
             GridLineIndex = 0;
@@ -82,8 +81,8 @@ namespace CASIA_DB_Reader
             for (int i = 0; i <= rec.Bottom; i++)
             {
                 yGrandTotal += proy[i];
-                if (yGrandTotal >= (GridLineIndex + 1) * yGrandAve)
-                {
+                int currentIndex = (int)(yGrandTotal / yGrandAve) - 1;
+                while (GridLineIndex < currentIndex) {
                     horGridLine[GridLineIndex++] = i;
                 }
                 if (GridLineIndex >= GRIDNUM - 1)

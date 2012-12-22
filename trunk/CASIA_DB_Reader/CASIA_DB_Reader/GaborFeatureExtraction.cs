@@ -22,6 +22,7 @@ namespace CASIA_DB_Reader
             //this.deltaX = deltaX;
             outputStream = File.Open(fileName, FileMode.Create);
             output = new BinaryWriter(outputStream);
+            deltaX = POTTool.WIDTH / NUMDIR;
         }
 
         //向特征文件中写入文件头信息（文字类的总数，最大维度数）
@@ -61,7 +62,7 @@ namespace CASIA_DB_Reader
             PatternTool.elasticMeshing(ref pat);
             double[] feature = new double[PatternTool.GRIDNUM * PatternTool.GRIDNUM * NUMDIR];
             int xm, ym;
-            int xs = 0, ys = 0;
+            int xs = pat.boundary.Left, ys = pat.boundary.Top;
             for (int i = 0; i < pat.horGridLine.Count + 1; i++)
             {
                 //单元格的Y轴中间值
@@ -72,8 +73,9 @@ namespace CASIA_DB_Reader
                 }
                 else
                 {
-                    ym = (pat.horGridLine[i - 1] + pat.boundary.Bottom) / 2;
-                    deltaY = pat.boundary.Bottom - pat.horGridLine[i - 1];
+                    ym = (pat.horGridLine[pat.horGridLine.Count - 1] + pat.boundary.Bottom) / 2;
+                    deltaY = pat.boundary.Bottom - pat.horGridLine[pat.horGridLine.Count - 1];
+                    ys = pat.boundary.Top;
                 }
                 for (int j = 0; j < pat.verGridLine.Count + 1; j++)
                 {
@@ -81,20 +83,27 @@ namespace CASIA_DB_Reader
                     if (j < pat.verGridLine.Count)
                     {
                         xm = (xs + pat.verGridLine[j]) / 2;
-                        deltaX = pat.verGridLine[j] - xs;
+                        //deltaX = pat.verGridLine[j] - xs;
                     }
                     else
                     {
                         xm = (pat.verGridLine[pat.verGridLine.Count - 1] + pat.boundary.Height) / 2;
-                        deltaX = pat.boundary.Height - pat.verGridLine[pat.verGridLine.Count - 1];
+                        //deltaX = pat.boundary.Right - pat.verGridLine[pat.verGridLine.Count - 1];
+                        xs = pat.boundary.Left;
                     }
-                    deltaX = (deltaX + deltaY) / 2;
-                    Console.WriteLine("deltaX=" + deltaX + ",");
+                    //double delta = (deltaX + deltaY) / 2;
+                    //Console.Write("deltaX=" + deltaX + ",");
+                    //if (deltaX < 0 || deltaY < 0 || delta<0)
+                    //{
+                    //    Console.Write("deltaX=" + deltaX + ",");
+                    //}
+                    //deltaX = delta;
                     //获得单元格中心点(xm,ym)的gabor特征值
                     double[] subFeature = gaborFeatures(xm, ym, pat);
                     //Console.WriteLine("subFeature.Length=" + subFeature.Length + ",");
                     for (int k = 0; k < subFeature.Length; k++)
                     {
+
                         int index = i * PatternTool.GRIDNUM * NUMDIR + j * NUMDIR + k;
                         //Console.Write(index+",");
                         feature[i * PatternTool.GRIDNUM * NUMDIR + j * NUMDIR + k] = subFeature[k];
@@ -124,9 +133,10 @@ namespace CASIA_DB_Reader
                      double dis = (p.x - x) * (p.x - x) + (p.y - y) * (p.y - y);
                      if (dis < DISTANCE)
                      {
-                         for (int i = 0; i < NUMDIR - 1; i++)
+                         for (int i = 0; i < NUMDIR; i++)
                          {
-                             feature[i] += gabor(p.x - x, p.y - y, Math.PI * 1 / (i + 1));
+                             feature[i] += gabor(p.x-x, p.y-y, Math.PI * i / (NUMDIR));
+                             //Console.Write(feature[i]);
                          }
                      }
                  }
@@ -149,9 +159,10 @@ namespace CASIA_DB_Reader
             double sigmaO = sigmaX * fOsc;
             double sigmaO2 = sigmaO *sigmaO;
             double thirdPart = Math.Exp(2 * Math.PI * fOsc * xPrime) - Math.Exp(-2 * Math.PI * Math.PI * sigmaO2);
-            double secPart = Math.Exp(-(xPrime * xPrime / 2 * sigmaX2)+(yPrime*yPrime/2*sigmaY2));
+            double secPart = Math.Exp(0-((xPrime * xPrime / 2 * sigmaX2)+(yPrime*yPrime/2*sigmaY2)));
             double firstPart = 1 / (2 * Math.PI * sigmaX * sigmaY);
-            return firstPart * secPart*thirdPart;
+            double value =  firstPart * secPart*thirdPart;
+            return Math.Abs(value);
         }
     }
 }
