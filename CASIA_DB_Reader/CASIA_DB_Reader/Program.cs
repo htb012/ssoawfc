@@ -40,7 +40,7 @@ namespace CASIA_DB_Reader
 
             //测试dic文件的正确性
             //dicFileLoader dic = new dicFileLoader();
-            //dic.readDicFile("z:\\shixi\\trainFea.ft2");
+            //dic.readDicFile("z:\\shixi\\TehonTest17-20.ft2");
 
             //test.tt();
 

@@ -277,20 +277,21 @@ namespace CASIA_DB_Reader
                         strokeNum += pat.strokeNum;
                         POTTool.translational(ref pat);//平移
                         //POTTool.normaliztion(ref pat);//切除长尾巴
-                        POTTool.pointComplement(ref pat);//短缺点补足
+                        POTTool.interPoint(ref pat);//短缺点补足
                         POTTool.reSize(ref pat);//变形
-                        POTTool.gaussSmoothing(pat, sinterval);//高斯平滑
+                        //POTTool.gaussSmoothing(pat, sinterval);//高斯平滑
                         codePats.Add(pat);
                     }
-                    else {
+                    else
+                    {
                         Console.WriteLine("no pat");
                     }
                 }
                 patCount += codePats.Count;
-                //this.writeNewPFile(codePats);
+                this.writeNewPFile(codePats);
                 int t = codePats.Count;
-                Console.WriteLine("Count:"+t);
-                extFea.writeIntDate(codePats.Count);
+                Console.WriteLine("Count:" + t);
+                /*extFea.writeIntDate(codePats.Count);
                 foreach (CharPattern pat in codePats)
                 {
                     double[] feature = extFea.getFeature(pat);
@@ -303,7 +304,10 @@ namespace CASIA_DB_Reader
                 }
             }
             extFea.closeFeatureFile();
-           // Console.WriteLine("pattern count = " + patCount + ",strokeNum = " + strokeNum + ",feaNum" + extractFeature.featureNum + "," + extractFeature.maxFeatureValue + "," + extractFeature.minFeatureValue);
+                  
+           Console.WriteLine("pattern count = " + patCount + ",strokeNum = " + strokeNum + ",feaNum" + extractFeature.featureNum + "," + extractFeature.maxFeatureValue + "," + extractFeature.minFeatureValue);
+                 */
+            }
         }
 
         /// <summary>
