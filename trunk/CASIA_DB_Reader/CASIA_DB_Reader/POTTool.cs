@@ -157,6 +157,122 @@ namespace CASIA_DB_Reader
             }
         }
 
+        /// <summary>
+        /// 笔画点的调整（增加和删除），『pointComplement的第二版本，
+        /// 参考Preprocessing Techniques for OnlineHandwriting Recognition论文*1』
+        /// </summary>
+        /// <param name="pat"></param>
+        public static void interPoint(ref CharPattern pat)
+        {
+            //double aveLen = getAveLen(pat);
+            //aveLen *= 0.5;//取平均长度的一半『根据论文*1』
+            //interPoint(pat.strokes, aveLen);
+            interPoint(pat.strokes, UNITDISTANCE);
+        }
+
+        /// <summary>
+        /// 笔画点的调整（增加和删除），『pointComplement的第二版本，
+        /// 参考Preprocessing Techniques for OnlineHandwriting Recognition论文』
+        /// </summary>
+        /// <param name="pat"></param>
+        public static void interPoint(List<Stroke> strokes, double unitDistance)
+        {
+            point prefPoint, nextPoint;
+
+            foreach (Stroke stroke in strokes)
+            {
+                //笔画信息不存在，或者只是点数据
+                if (stroke.points.Count < 2)
+                {
+                    strokes.Remove(stroke);
+                    break;
+                }
+                prefPoint = stroke.points[0];
+                for (int index = 1; index < stroke.points.Count; index++)
+                {
+                    nextPoint = stroke.points[index];
+                    float xDistance = nextPoint.x - prefPoint.x;
+                    float yDistance = nextPoint.y - prefPoint.y;
+                    double distance = getDistance(prefPoint, nextPoint);
+                    //当两点间的距离小于单位距离的时候，调整距离点
+                    if ((distance < unitDistance) && (index < stroke.points.Count-1))
+                    {
+                        stroke.points.RemoveAt(index);
+                        index--;
+                        break;
+                    }
+                    int loopCount = (int)(distance / unitDistance);
+                    for (int i = 1; i <= loopCount; i++)
+                    {
+                        short newX = (short)(prefPoint.x + (xDistance / loopCount * i));
+                        short newY = (short)(prefPoint.y + (yDistance / loopCount * i));
+                        point newPoint = new point(newX, newY);
+                        //smoothing(pointList[index - 1], ref newPoint, pointList[index]);
+                        stroke.points.Insert(index, newPoint);
+                        index++;
+                        //最后一次添加的点作为开始点
+                        prefPoint = newPoint;
+                    }
+                    //prefPoint = nextPoint;
+                }
+            }
+        }
+
+        /// <summary>
+        /// 获取笔画中点见平均距离
+        /// </summary>
+        /// <param name="pat"></param>
+        /// <returns></returns>
+        public static double getAveLen(CharPattern pat) {
+            double aveLen = 0.0f;
+            double sumLen = 0.0f;
+            int pointCount = 0;
+            point prefPoint, nextPoint;
+            foreach (Stroke stroke in pat.strokes)
+            { 
+                pointCount++;
+                prefPoint = stroke.points[0];
+                for (int index = 1; index < stroke.points.Count; index++)
+                {
+                    pointCount++;
+                    nextPoint = stroke.points[index];
+                    sumLen += getDistance(prefPoint, nextPoint);
+                }
+            }
+            aveLen = sumLen / pointCount;
+            return aveLen;
+        }
+
+        /// <summary>
+        /// 获取笔画内的尖锐点(突点？)
+        /// </summary>
+        public static List<point> getSharpPoint(Stroke stroke)
+        {
+            List<point> vPoint = new List<point>();
+            vPoint.Add(stroke.points[0]);
+            point firPoint, secPoint,thirdPoint,lastPoint;
+            double firA,secA,lastA;
+            double preTheta,lastTheta;
+            
+            preTheta = (stroke.points[2].y - stroke.points[1].y)/(stroke.points[2].x - stroke.points[1].x) - (stroke.points[1].y - stroke.points[0].y)/(stroke.points[1].x - stroke.points[0].x);
+            firPoint = stroke.points[0];
+            for (int index = 1; index < stroke.points.Count-2; index++) {
+                secPoint = stroke.points[index];
+                thirdPoint = stroke.points[index+1];
+                lastPoint = stroke.points[index+2];
+
+                /*firA = ()
+
+                double preA = (midPoint.y - prePoint.y) / (midPoint.x - prePoint.x);
+                double midA = (midPoint.y - prePoint.y) / (midPoint.x - prePoint.x);
+                double preTheta = preA - midA;
+                double lastTheta = midA - 
+                 * */
+            }
+            vPoint.Add(stroke.points[stroke.points.Count-1]);
+            return vPoint;
+        }
+
         
 
         /// <summary>
