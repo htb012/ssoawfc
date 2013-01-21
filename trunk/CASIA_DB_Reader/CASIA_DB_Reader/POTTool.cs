@@ -164,10 +164,12 @@ namespace CASIA_DB_Reader
         /// <param name="pat"></param>
         public static void interPoint(ref CharPattern pat)
         {
-            //double aveLen = getAveLen(pat);
-            //aveLen *= 0.5;//取平均长度的一半『根据论文*1』
-            //interPoint(pat.strokes, aveLen);
-            interPoint(pat.strokes, UNITDISTANCE);
+            double aveLen = getAveLen(pat);
+            aveLen *= 0.5;//取平均长度的一半『根据论文*1』
+            interPoint(pat.strokes, aveLen);
+            //Console.WriteLine("aveLen=" + aveLen+"            ");
+            //interPoint(pat.strokes, UNITDISTANCE);
+            
         }
 
         /// <summary>
@@ -181,7 +183,7 @@ namespace CASIA_DB_Reader
 
             foreach (Stroke stroke in strokes)
             {
-                //笔画信息不存在，或者只是点数据
+                //笔画信息不存在，或者为点数据
                 if (stroke.points.Count < 2)
                 {
                     strokes.Remove(stroke);
@@ -194,6 +196,8 @@ namespace CASIA_DB_Reader
                     float xDistance = nextPoint.x - prefPoint.x;
                     float yDistance = nextPoint.y - prefPoint.y;
                     double distance = getDistance(prefPoint, nextPoint);
+
+
                     //当两点间的距离小于单位距离的时候，调整距离点
                     if ((distance < unitDistance) && (index < stroke.points.Count-1))
                     {
@@ -202,19 +206,27 @@ namespace CASIA_DB_Reader
                         break;
                     }
                     int loopCount = (int)(distance / unitDistance);
+                    double sin = yDistance/distance;
+                    double cos = xDistance / distance;
+
                     for (int i = 1; i <= loopCount; i++)
                     {
-                        short newX = (short)(prefPoint.x + (xDistance / loopCount * i));
-                        short newY = (short)(prefPoint.y + (yDistance / loopCount * i));
+
+                        double xPlus = unitDistance * i * cos;
+                        double yPlus = unitDistance * i * sin;
+
+                        short newX = (short)(prefPoint.x + xPlus);
+                        short newY = (short)(prefPoint.y + yPlus);
                         point newPoint = new point(newX, newY);
                         //smoothing(pointList[index - 1], ref newPoint, pointList[index]);
                         stroke.points.Insert(index, newPoint);
                         index++;
-                        //最后一次添加的点作为开始点
-                        prefPoint = newPoint;
+                        //Console.WriteLine("x:  " + newX + ",y:  " + newY);
                     }
-                    //prefPoint = nextPoint;
+                     //最后一次添加的点作为开始点
+                    prefPoint = stroke.points[index-1];
                 }
+                //Console.WriteLine("Count:  "+stroke.points.Count);
             }
         }
 
@@ -785,6 +797,17 @@ namespace CASIA_DB_Reader
         {
             double dis = Math.Sqrt(Math.Pow(prefPoint.x - nextPoint.x, 2) + Math.Pow(prefPoint.y - nextPoint.y, 2));
             return dis;
+        }
+
+        /// <summary>
+        /// 获取两个点的斜率
+        /// </summary>
+        /// <param name="prefPoint"></param>
+        /// <param name="nextPoint"></param>
+        /// <returns></returns>
+        public static double getSlope(point prefPoint, point nextPoint)
+        {
+            return (nextPoint.y - prefPoint.y) / (nextPoint.x - prefPoint.x);
         }
 
 

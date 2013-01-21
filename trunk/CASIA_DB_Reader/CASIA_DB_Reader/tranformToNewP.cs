@@ -262,8 +262,8 @@ namespace CASIA_DB_Reader
         {
             int patCount = 0, strokeNum = 0;
             StreamReader sr = new StreamReader(encodesFile, gb2312);
-            extractFeature extFea = new extractFeature(feaFileName);
-            extFea.writeFeatureFileMeta(4037);
+            //extractFeature extFea = new extractFeature(feaFileName);
+            //extFea.writeFeatureFileMeta(4037);
             while (!sr.EndOfStream)
             {
                 List<CharPattern> codePats = new List<CharPattern>();
@@ -276,10 +276,10 @@ namespace CASIA_DB_Reader
                     {
                         strokeNum += pat.strokeNum;
                         POTTool.translational(ref pat);//平移
+                        POTTool.reSize(ref pat);//变形
                         //POTTool.normaliztion(ref pat);//切除长尾巴
                         POTTool.interPoint(ref pat);//短缺点补足
-                        POTTool.reSize(ref pat);//变形
-                        //POTTool.gaussSmoothing(pat, sinterval);//高斯平滑
+                        //POTTool.gaussSmoothing(pat, sinterval);//高斯平滑 
                         codePats.Add(pat);
                     }
                     else
