@@ -262,8 +262,8 @@ namespace CASIA_DB_Reader
         {
             int patCount = 0, strokeNum = 0;
             StreamReader sr = new StreamReader(encodesFile, gb2312);
-            //extractFeature extFea = new extractFeature(feaFileName);
-            //extFea.writeFeatureFileMeta(4037);
+            extractFeature extFea = new extractFeature(feaFileName);
+            extFea.writeFeatureFileMeta(4037);
             while (!sr.EndOfStream)
             {
                 List<CharPattern> codePats = new List<CharPattern>();
@@ -276,9 +276,9 @@ namespace CASIA_DB_Reader
                     {
                         strokeNum += pat.strokeNum;
                         POTTool.translational(ref pat);//平移
-                        POTTool.reSize(ref pat);//变形
                         //POTTool.normaliztion(ref pat);//切除长尾巴
                         POTTool.interPoint(ref pat);//短缺点补足
+                        POTTool.reSize(ref pat);//变形
                         //POTTool.gaussSmoothing(pat, sinterval);//高斯平滑 
                         codePats.Add(pat);
                     }
@@ -288,26 +288,18 @@ namespace CASIA_DB_Reader
                     }
                 }
                 patCount += codePats.Count;
-                this.writeNewPFile(codePats);
+                //this.writeNewPFile(codePats);
                 int t = codePats.Count;
                 Console.WriteLine("Count:" + t);
-                /*extFea.writeIntDate(codePats.Count);
+                extFea.writeIntDate(codePats.Count);
                 foreach (CharPattern pat in codePats)
                 {
                     double[] feature = extFea.getFeature(pat);
                     extFea.wirteFeatureValue(feature);
-                    for (int i = 0; i < feature.Length; i++)
-                    {
-                        //Console.Write((short)feature[i] + ",");
-                    }
-                    //Console.WriteLine();
                 }
             }
             extFea.closeFeatureFile();
-                  
-           Console.WriteLine("pattern count = " + patCount + ",strokeNum = " + strokeNum + ",feaNum" + extractFeature.featureNum + "," + extractFeature.maxFeatureValue + "," + extractFeature.minFeatureValue);
-                 */
-            }
+          // Console.WriteLine("pattern count = " + patCount + ",strokeNum = " + strokeNum + ",feaNum" + extractFeature.featureNum + "," + extractFeature.maxFeatureValue + "," + extractFeature.minFeatureValue);
         }
 
         /// <summary>

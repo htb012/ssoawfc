@@ -6,6 +6,9 @@ using System.IO;
 
 namespace CASIA_DB_Reader
 {
+    /// <summary>
+    /// 使用刘老师的方法，具体参照论文。。。
+    /// </summary>
     class extractFeature
     {
         public  const int NUMDIR = 8;
@@ -16,13 +19,29 @@ namespace CASIA_DB_Reader
         public const int DISTANCE = 500;
         public FileStream outputStream;
         public BinaryWriter output;
+        public double firstPart, fOsc, sigmaO2, sigmaX2, sigmaY2;
 
         public extractFeature( string fileName)
         {
             //this.deltaX = deltaX;
             outputStream = File.Open(fileName, FileMode.Create);
             output = new BinaryWriter(outputStream);
-            deltaX = POTTool.WIDTH / NUMDIR;
+
+            double alpha = ((NU + 1) / (NU - 1)) * Math.Tan(Math.PI / NUMDIR / 2);
+            double deltaX = POTTool.WIDTH / NUMDIR;
+            double fMax = 1 / (2 * deltaX);
+            double fOsc = ((NU + 1) / (2 * NU)) * fMax;
+            double sigmaU = ((NU - 1) / (BETA * (NU + 1))) * fOsc;
+
+            double sigmaV = sigmaU / alpha;
+            double sigmaX = 1 / (2 * sigmaU * Math.PI);
+            sigmaX2 = sigmaX * sigmaX;
+            double sigmaY = 1 / (2 * sigmaV * Math.PI);
+            //double sigmaYPrime = sigmaX * alpha;
+            sigmaY2 = sigmaY * sigmaY;
+            double sigmaO = sigmaX * fOsc;
+            sigmaO2 = sigmaO * sigmaO;
+            firstPart = 1 / (2 * Math.PI * sigmaX * sigmaY);
         }
 
         //向特征文件中写入文件头信息（文字类的总数，最大维度数）
@@ -130,15 +149,11 @@ namespace CASIA_DB_Reader
             {
                 foreach (point p in stroke.points)
                 {
-                     double dis = (p.x - x) * (p.x - x) + (p.y - y) * (p.y - y);
-                     if (dis < DISTANCE)
-                     {
-                         for (int i = 0; i < NUMDIR; i++)
-                         {
-                             feature[i] += gabor(p.x-x, p.y-y, Math.PI * i / (NUMDIR));
-                             //Console.Write(feature[i]);
-                         }
-                     }
+                    for (int i = 0; i < NUMDIR; i++)
+                    {
+                        feature[i] += 255 * gabor(p.x-x, p.y-y, Math.PI * i / (NUMDIR));
+                        //Console.Write(feature[i]+",");
+                    }
                  }
            }
             return feature;
@@ -147,21 +162,9 @@ namespace CASIA_DB_Reader
         public double gabor(int x, int y, double ori) {
             double xPrime = x * Math.Cos(ori) + y * Math.Sin(ori);
             double yPrime = -x * Math.Sin(ori) + y * Math.Cos(ori);
-            double alpha = ((NU+1)/(NU-1))*Math.Tan(Math.PI/NUMDIR/2);
-            double fMax = 1 / (2 * deltaX);
-            double fOsc = ((NU + 1) / (2 * NU)) * fMax;
-            double sigmaU = ((NU - 1) / (BETA * (NU + 1))) * fOsc;
-            double sigmaV = sigmaU/alpha;
-            double sigmaX = 1/(2* sigmaU * Math.PI);
-            double sigmaX2 = sigmaX *sigmaX;
-            double sigmaY = 1/(2 * sigmaV * Math.PI);
-            double sigmaY2 = sigmaY * sigmaY;
-            double sigmaO = sigmaX * fOsc;
-            double sigmaO2 = sigmaO *sigmaO;
             double thirdPart = Math.Exp(2 * Math.PI * fOsc * xPrime) - Math.Exp(-2 * Math.PI * Math.PI * sigmaO2);
-            double secPart = Math.Exp(0-((xPrime * xPrime / 2 * sigmaX2)+(yPrime*yPrime/2*sigmaY2)));
-            double firstPart = 1 / (2 * Math.PI * sigmaX * sigmaY);
-            double value =  firstPart * secPart*thirdPart;
+            double secPart = Math.Exp(0-((xPrime * xPrime) /( 2 * sigmaX2)+(yPrime*yPrime)/(2*sigmaY2)));
+            double value =  firstPart * secPart * thirdPart;
             return Math.Abs(value);
         }
     }
