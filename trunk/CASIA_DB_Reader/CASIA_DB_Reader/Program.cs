@@ -31,6 +31,7 @@ namespace CASIA_DB_Reader
 
             //测试
             //test t = new test();
+            test.testGaborFilter();
             //t.tehonToImage("Z:\\newTest\\DB\\0000.newp", "d:\\test\\0800.jpg");
             //t.changeAllTehonToImage("Z:\\newTest\\train\\");
             //t.writeCharToFile("美媒：卡梅隆拟邀中国参与《阿凡达》续集说话汀", "z:\\test\\tt.txt");
@@ -51,8 +52,8 @@ namespace CASIA_DB_Reader
             ////args[4] 
             ////pot文件转转换为TEHONE格式的newP文件
 
-            tranformToNewP tranform = new tranformToNewP(args[0], args[1], args[2]);
-            tranform.tranform(args[3], Convert.ToSingle(args[4]), args[5], Convert.ToInt32(args[6]));
+            //tranformToNewP tranform = new tranformToNewP(args[0], args[1], args[2]);
+            //tranform.tranform(args[3], Convert.ToSingle(args[4]), args[5], Convert.ToInt32(args[6]));
 
 
             //特征提取
