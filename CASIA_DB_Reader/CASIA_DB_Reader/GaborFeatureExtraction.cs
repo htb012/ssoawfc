@@ -171,7 +171,8 @@ namespace CASIA_DB_Reader
             double xPrime = x * Math.Cos(ori) + y * Math.Sin(ori); 
             double yPrime = -x * Math.Sin(ori) + y * Math.Cos(ori);
             //double thirdPart = Math.Exp(2 * Math.PI * fOsc * xPrime) - Math.Exp(-2 * Math.PI * Math.PI * sigmaO2);
-            double thirdPart = Math.Cos(2 * Math.PI * fOsc * xPrime) - Math.Exp(-2 * Math.PI * Math.PI * sigmaO2);
+            //double thirdPart = Math.Cos(2 * Math.PI * fOsc * xPrime) - Math.Exp(-2 * Math.PI * Math.PI * sigmaO2);
+            double thirdPart = Math.Cos(2 * Math.PI * fOsc * xPrime) ;
             double secPart = Math.Exp(0-((xPrime * xPrime) /( 2 * sigmaX2)+(yPrime*yPrime)/(2*sigmaY2)));
             double value = firstPart * secPart * thirdPart;
             return Math.Abs(value);
