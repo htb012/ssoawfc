@@ -13,13 +13,12 @@ namespace CASIA_DB_Reader
     {
         public  const int NUMDIR = 8;
         public const double NU = 2;
-        public const double BETA = 1;
-        public double deltaX;
+        public const double BETA = 1.177;
         public double deltaY;
         public const int DISTANCE = 500;
         public FileStream outputStream;
         public BinaryWriter output;
-        public double firstPart, fOsc, sigmaO2, sigmaX2, sigmaY2;
+        public double firstPart,fOsc, sigmaO2, sigmaX2, sigmaY2;
 
         public extractFeature( string fileName)
         {
@@ -30,7 +29,7 @@ namespace CASIA_DB_Reader
             double alpha = ((NU + 1) / (NU - 1)) * Math.Tan(Math.PI / NUMDIR / 2);
             double deltaX = POTTool.WIDTH / NUMDIR;
             double fMax = 1 / (2 * deltaX);
-            double fOsc = ((NU + 1) / (2 * NU)) * fMax;
+            fOsc = ((NU + 1) / (2 * NU)) * fMax;
             double sigmaU = ((NU - 1) / (BETA * (NU + 1))) * fOsc;
 
             double sigmaV = sigmaU / alpha;
@@ -119,6 +118,7 @@ namespace CASIA_DB_Reader
                     //deltaX = delta;
                     //获得单元格中心点(xm,ym)的gabor特征值
                     double[] subFeature = gaborFeatures(xm, ym, pat);
+                    //double[] subFeature = gaborFeatures((int)(150 / 8 * (i + 0.5)), (int) (150 / 8 * (j + 0.5)), pat);
                     //Console.WriteLine("subFeature.Length=" + subFeature.Length + ",");
                     for (int k = 0; k < subFeature.Length; k++)
                     {
@@ -144,27 +144,36 @@ namespace CASIA_DB_Reader
         public double[] gaborFeatures(int x, int y, CharPattern pat)
         {
             double[] feature = new double[NUMDIR];
-
+            point prePoint;
             foreach (Stroke stroke in pat.strokes)
             {
-                foreach (point p in stroke.points)
-                {
-                    for (int i = 0; i < NUMDIR; i++)
+                prePoint = stroke.points[0];
+                for (int i = 1; i < stroke.points.Count; i++) {
+                    List<point> pointList = POTTool.getPointList(prePoint, stroke.points[i],5.0f);
+                    foreach (point p in pointList)
                     {
-                        feature[i] += 255 * gabor(p.x-x, p.y-y, Math.PI * i / (NUMDIR));
-                        //Console.Write(feature[i]+",");
+                        if (POTTool.getDistance(prePoint, p) < DISTANCE)
+                        {
+                            for (int j = 0; j < NUMDIR; j++)
+                            {
+                                feature[j] += 100000 * gabor(x - p.x, y - p.y, Math.PI * j / (NUMDIR));
+                                //Console.Write(feature[i]+",");
+                            }
+                        }
                     }
-                 }
+                    prePoint = stroke.points[i];
+                }
            }
             return feature;
         }
 
         public double gabor(int x, int y, double ori) {
-            double xPrime = x * Math.Cos(ori) + y * Math.Sin(ori);
+            double xPrime = x * Math.Cos(ori) + y * Math.Sin(ori); 
             double yPrime = -x * Math.Sin(ori) + y * Math.Cos(ori);
-            double thirdPart = Math.Exp(2 * Math.PI * fOsc * xPrime) - Math.Exp(-2 * Math.PI * Math.PI * sigmaO2);
+            //double thirdPart = Math.Exp(2 * Math.PI * fOsc * xPrime) - Math.Exp(-2 * Math.PI * Math.PI * sigmaO2);
+            double thirdPart = Math.Cos(2 * Math.PI * fOsc * xPrime) - Math.Exp(-2 * Math.PI * Math.PI * sigmaO2);
             double secPart = Math.Exp(0-((xPrime * xPrime) /( 2 * sigmaX2)+(yPrime*yPrime)/(2*sigmaY2)));
-            double value =  firstPart * secPart * thirdPart;
+            double value = firstPart * secPart * thirdPart;
             return Math.Abs(value);
         }
     }
