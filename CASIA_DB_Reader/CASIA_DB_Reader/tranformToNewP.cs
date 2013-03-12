@@ -258,12 +258,12 @@ namespace CASIA_DB_Reader
         /// 
         /// </summary>
         /// <param name="encodesFile"></param>
-        public void tranform(string encodesFile, float sinterval,string feaFileName)
+        public void tranform(string encodesFile, float sinterval,string feaFileName,int cate)
         {
             int patCount = 0, strokeNum = 0;
             StreamReader sr = new StreamReader(encodesFile, gb2312);
             extractFeature extFea = new extractFeature(feaFileName);
-            extFea.writeFeatureFileMeta(4037);
+            extFea.writeFeatureFileMeta(cate);
             while (!sr.EndOfStream)
             {
                 List<CharPattern> codePats = new List<CharPattern>();

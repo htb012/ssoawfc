@@ -139,22 +139,31 @@ namespace CASIA_DB_Reader
                 for (int index = 1; index < stroke.points.Count; index++)
                 {
                     nextPoint = stroke.points[index];
-                    float xDistance = nextPoint.x - prefPoint.x;
-                    float yDistance = nextPoint.y - prefPoint.y;
-                    double distance = getDistance(prefPoint, nextPoint);
-                    int loopCount = (int)(distance / unitDistance);
-                    for (int i = 1; i <= loopCount; i++)
-                    {
-                        short newX = (short)(prefPoint.x + (xDistance / loopCount * i));
-                        short newY = (short)(prefPoint.y + (yDistance / loopCount * i));
-                        point newPoint = new point(newX, newY);
-                        //smoothing(pointList[index - 1], ref newPoint, pointList[index]);
-                        stroke.points.Insert(index, newPoint);
+                    List<point> pointList = getPointList(prefPoint, nextPoint, unitDistance);
+                    foreach (point p in pointList) {
+                        stroke.points.Insert(index, p);
                         index++;
                     }
                     prefPoint = nextPoint;
                 }
             }
+        }
+        //获取两点之间的固定间隔点
+        public static List<point> getPointList(point prefPoint, point nextPoint, float unitDistance)
+        {
+            List<point> pointList = new List<point>();
+            float xDistance = nextPoint.x - prefPoint.x;
+            float yDistance = nextPoint.y - prefPoint.y;
+            double distance = getDistance(prefPoint, nextPoint);
+            int loopCount = (int)(distance / unitDistance);
+            for (int i = 1; i <= loopCount; i++)
+            {
+                short newX = (short)(prefPoint.x + (xDistance / loopCount * i));
+                short newY = (short)(prefPoint.y + (yDistance / loopCount * i));
+                point newPoint = new point(newX, newY);
+                pointList.Add(newPoint);
+            }
+            return pointList;
         }
 
         /// <summary>

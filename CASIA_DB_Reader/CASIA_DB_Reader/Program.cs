@@ -52,7 +52,7 @@ namespace CASIA_DB_Reader
             ////pot文件转转换为TEHONE格式的newP文件
 
             tranformToNewP tranform = new tranformToNewP(args[0], args[1], args[2]);
-            tranform.tranform(args[3], Convert.ToSingle(args[4]), args[5]);
+            tranform.tranform(args[3], Convert.ToSingle(args[4]), args[5], Convert.ToInt32(args[6]));
 
 
             //特征提取
