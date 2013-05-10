@@ -154,12 +154,7 @@ namespace CASIA_DB_Reader
         /// 测试gabor filter的可用性
         /// </summary>
         public static void testGaborFilter() {
-            Image img = Image.FromFile(@"E:\test.jpg");
-            Bitmap bitmap = new Bitmap(img);
-
-           
-            bitmap.SetPixel(100, 100, Color.Red);
-            bitmap.Save(@"E:\test1.jpg");
+            
         }
     }
 }

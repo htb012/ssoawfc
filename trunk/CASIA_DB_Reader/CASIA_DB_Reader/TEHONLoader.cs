@@ -50,7 +50,7 @@ namespace CASIA_DB_Reader
             Graphics graphics = Graphics.FromImage(bmp);     //创建该位图的Graphics对象
 
             POTTool.pointComplement(ref pat);//短缺点补足
-            //POTTool.normaliztion(ref pat);//切除长尾巴
+            POTTool.normaliztion(ref pat);//切除长尾巴
             POTTool.translational(ref pat);
             POTTool.reSize(ref pat);
             PatternTool.drawElasticMeshing(graphics, ref pat);
@@ -89,7 +89,6 @@ namespace CASIA_DB_Reader
                 while (!sr.EndOfStream && (Convert.ToChar(sr.Peek()) != '['))
                 {
                     str = sr.ReadLine().Trim();
-
                     string[] data = null;
                     if (str.Contains('\t'))
                     {
@@ -102,12 +101,8 @@ namespace CASIA_DB_Reader
                     short penState = Int16.Parse(data[0]);
                     short x = Int16.Parse(data[1]);
                     short y = Int16.Parse(data[2]);
-
-                    if (penState != tehonPattern.UP)
-                    {
-                        stroke.points.Add(new point(x,y));
-                    }
-                    else
+                    stroke.points.Add(new point(x,y));
+                    if (penState == tehonPattern.UP)
                     {
                         pat.strokes.Add(stroke);
                         stroke = new Stroke();

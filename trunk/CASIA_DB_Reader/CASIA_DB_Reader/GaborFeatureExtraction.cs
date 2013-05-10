@@ -11,36 +11,20 @@ namespace CASIA_DB_Reader
     /// </summary>
     class extractFeature
     {
-        public  const int NUMDIR = 8;
+        public const int NUMDIR = 8;
         public const double NU = 2;
         public const double BETA = 1.177;
-        public double deltaY;
+        public double delta, deltaX, deltaY;
         public const int DISTANCE = 500;
         public FileStream outputStream;
         public BinaryWriter output;
-        public double firstPart,fOsc, sigmaO2, sigmaX2, sigmaY2;
+        public double firstPart, fOsc, sigmaO2, sigmaX2, sigmaY2;
 
-        public extractFeature( string fileName)
+        public extractFeature(string fileName)
         {
             //this.deltaX = deltaX;
             outputStream = File.Open(fileName, FileMode.Create);
             output = new BinaryWriter(outputStream);
-
-            double alpha = ((NU + 1) / (NU - 1)) * Math.Tan(Math.PI / NUMDIR / 2);
-            double deltaX = POTTool.WIDTH / NUMDIR;
-            double fMax = 1 / (2 * deltaX);
-            fOsc = ((NU + 1) / (2 * NU)) * fMax;
-            double sigmaU = ((NU - 1) / (BETA * (NU + 1))) * fOsc;
-
-            double sigmaV = sigmaU / alpha;
-            double sigmaX = 1 / (2 * sigmaU * Math.PI);
-            sigmaX2 = sigmaX * sigmaX;
-            double sigmaY = 1 / (2 * sigmaV * Math.PI);
-            //double sigmaYPrime = sigmaX * alpha;
-            sigmaY2 = sigmaY * sigmaY;
-            double sigmaO = sigmaX * fOsc;
-            sigmaO2 = sigmaO * sigmaO;
-            firstPart = 1 / (2 * Math.PI * sigmaX * sigmaY);
         }
 
         //向特征文件中写入文件头信息（文字类的总数，最大维度数）
@@ -87,12 +71,12 @@ namespace CASIA_DB_Reader
                 if (i < pat.horGridLine.Count)
                 {
                     ym = (ys + pat.horGridLine[i]) / 2;
-                    deltaY = pat.horGridLine[i] - ys;
+                    deltaY = (pat.horGridLine[i] - ys)/2;
                 }
                 else
                 {
                     ym = (pat.horGridLine[pat.horGridLine.Count - 1] + pat.boundary.Bottom) / 2;
-                    deltaY = pat.boundary.Bottom - pat.horGridLine[pat.horGridLine.Count - 1];
+                    deltaY = (pat.boundary.Bottom - pat.horGridLine[pat.horGridLine.Count - 1])/2;
                     ys = pat.boundary.Top;
                 }
                 for (int j = 0; j < pat.verGridLine.Count + 1; j++)
@@ -101,28 +85,30 @@ namespace CASIA_DB_Reader
                     if (j < pat.verGridLine.Count)
                     {
                         xm = (xs + pat.verGridLine[j]) / 2;
-                        //deltaX = pat.verGridLine[j] - xs;
+                        deltaX = (pat.verGridLine[j] - xs)/2;
                     }
                     else
                     {
                         xm = (pat.verGridLine[pat.verGridLine.Count - 1] + pat.boundary.Height) / 2;
-                        //deltaX = pat.boundary.Right - pat.verGridLine[pat.verGridLine.Count - 1];
+                        deltaX = (pat.boundary.Right - pat.verGridLine[pat.verGridLine.Count - 1])/2;
                         xs = pat.boundary.Left;
                     }
-                    //double delta = (deltaX + deltaY) / 2;
-                    //Console.Write("deltaX=" + deltaX + ",");
-                    //if (deltaX < 0 || deltaY < 0 || delta<0)
-                    //{
-                    //    Console.Write("deltaX=" + deltaX + ",");
-                    //}
-                    //deltaX = delta;
+                    double delta = (deltaX + deltaY) / 2;
+                    //Console.WriteLine("deltaX=" + deltaX + ",");
+                    if (delta <= 0) {
+                        delta = (pat.boundary.Right + pat.boundary.Bottom) / NUMDIR /2;
+                    }
+                    if (deltaX < 0 || deltaY < 0 || delta < 0)
+                    {
+                        Console.WriteLine("ERROR!  deltaX=" + deltaX + ",");
+                    }
+                    deltaX = delta;
                     //获得单元格中心点(xm,ym)的gabor特征值
                     double[] subFeature = gaborFeatures(xm, ym, pat);
                     //double[] subFeature = gaborFeatures((int)(150 / 8 * (i + 0.5)), (int) (150 / 8 * (j + 0.5)), pat);
                     //Console.WriteLine("subFeature.Length=" + subFeature.Length + ",");
                     for (int k = 0; k < subFeature.Length; k++)
                     {
-
                         int index = i * PatternTool.GRIDNUM * NUMDIR + j * NUMDIR + k;
                         //Console.Write(index+",");
                         feature[i * PatternTool.GRIDNUM * NUMDIR + j * NUMDIR + k] = subFeature[k];
@@ -148,32 +134,55 @@ namespace CASIA_DB_Reader
             foreach (Stroke stroke in pat.strokes)
             {
                 prePoint = stroke.points[0];
-                for (int i = 1; i < stroke.points.Count; i++) {
-                    List<point> pointList = POTTool.getPointList(prePoint, stroke.points[i],5.0f);
+                for (int i = 1; i < stroke.points.Count; i++)
+                {
+                    List<point> pointList = POTTool.getPointList(prePoint, stroke.points[i], 10.0f);
+                    pointList.Add(prePoint);
+                    pointList.Add(stroke.points[i]);
                     foreach (point p in pointList)
                     {
                         if (POTTool.getDistance(prePoint, p) < DISTANCE)
                         {
                             for (int j = 0; j < NUMDIR; j++)
                             {
-                                feature[j] += 100000 * gabor(x - p.x, y - p.y, Math.PI * j / (NUMDIR));
+                                feature[j] += 10000 * gabor(x - p.x, y - p.y, Math.PI * j / (NUMDIR));
                                 //Console.Write(feature[i]+",");
                             }
                         }
                     }
                     prePoint = stroke.points[i];
                 }
-           }
+            }
             return feature;
         }
 
-        public double gabor(int x, int y, double ori) {
-            double xPrime = x * Math.Cos(ori) + y * Math.Sin(ori); 
+        public double gabor(int x, int y, double ori)
+        {
+
+            double alpha = ((NU + 1) / (NU - 1)) * Math.Tan(Math.PI / NUMDIR / 2);
+            //double deltaX = POTTool.WIDTH / NUMDIR;
+            double fMax = 1 / (2 * deltaX);
+            fOsc = ((NU + 1) / (2 * NU)) * fMax;
+            double sigmaU = ((NU - 1) / (BETA * (NU + 1))) * fOsc;
+
+            double sigmaV = sigmaU / alpha;
+            double sigmaX = 1 / (2 * sigmaU * Math.PI);
+            //double sigmaX = deltaX;
+            sigmaX2 = sigmaX * sigmaX;
+            double sigmaY = 1 / (2 * sigmaV * Math.PI);
+            //double sigmaY = deltaY;
+            //double sigmaYPrime = sigmaX * alpha;
+            sigmaY2 = sigmaY * sigmaY;
+            double sigmaO = sigmaX * fOsc;
+            sigmaO2 = sigmaO * sigmaO;
+            firstPart = 1 / (2 * Math.PI * sigmaX * sigmaY);
+
+            double xPrime = x * Math.Cos(ori) + y * Math.Sin(ori);
             double yPrime = -x * Math.Sin(ori) + y * Math.Cos(ori);
             //double thirdPart = Math.Exp(2 * Math.PI * fOsc * xPrime) - Math.Exp(-2 * Math.PI * Math.PI * sigmaO2);
-            //double thirdPart = Math.Cos(2 * Math.PI * fOsc * xPrime) - Math.Exp(-2 * Math.PI * Math.PI * sigmaO2);
-            double thirdPart = Math.Cos(2 * Math.PI * fOsc * xPrime) ;
-            double secPart = Math.Exp(0-((xPrime * xPrime) /( 2 * sigmaX2)+(yPrime*yPrime)/(2*sigmaY2)));
+            double thirdPart = Math.Cos(2 * Math.PI * fOsc * xPrime) - Math.Exp(-2 * Math.PI * Math.PI * sigmaO2);
+            //double thirdPart = Math.Cos(2 * Math.PI * fOsc * xPrime);
+            double secPart = Math.Exp(0 - ((xPrime * xPrime) / (2 * sigmaX2) + (yPrime * yPrime) / (2 * sigmaY2)));
             double value = firstPart * secPart * thirdPart;
             return Math.Abs(value);
         }

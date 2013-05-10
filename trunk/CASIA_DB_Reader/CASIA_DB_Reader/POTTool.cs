@@ -14,8 +14,8 @@ namespace CASIA_DB_Reader
     {
         //public const float WIDTH = 300;
         //public const float LENGTH = 300;
-        public const float WIDTH = 150;
-        public const float LENGTH = 150;
+        public const float WIDTH = 300;
+        public const float LENGTH = 300;
         public const float UNITDISTANCE = 14.0f;
         public const float STDDEVIATIONRATE = 1.9F;//剪切标准差倍率
         public const float SINTERVAL = 1.0f;
@@ -402,7 +402,7 @@ namespace CASIA_DB_Reader
                 }
             }
             pat.isBoundary = true;
-            pat.boundary = new Rectangle(xArray[0], yArray[0], xArray[1] - xArray[0] + 1, yArray[1] - yArray[0] + 1);
+            pat.boundary = new Rectangle(xArray[0], yArray[0], xArray[1] - xArray[0]+1 , yArray[1] - yArray[0]+1);
             //}
             return pat.boundary;
         }
@@ -492,11 +492,6 @@ namespace CASIA_DB_Reader
                     {
                         if (i == 0)
                         {
-                            if (stroke.points.Count == 1)
-                            {
-                                stroke.points.RemoveAt(0);
-                                continue;
-                            }
                             if (getDistance(stroke.points[1], centroid) > cutDistance)
                             {
                                 stroke.points.RemoveAt(0);
@@ -669,10 +664,10 @@ namespace CASIA_DB_Reader
         {
             Rectangle rec = getBoundary(pat);
 
-            double[] prox = new double[rec.Right + 1];
-            double[] proy = new double[rec.Bottom + 1];
+            double[] prox = new double[rec.Width + 1];
+            double[] proy = new double[rec.Height + 1];
 
-            getProjection(pat.strokes, ref prox, ref proy);
+            getProjection(pat, ref prox, ref proy);
             short x = (short)getCentroid(ref prox, rec.Right);
             short y = (short)getCentroid(ref proy, rec.Bottom);
             return new point(x, y);
@@ -685,13 +680,14 @@ namespace CASIA_DB_Reader
         /// <param name="points"></param>
         /// <param name="prox"></param>
         /// <param name="proy"></param>
-        public static void getProjection(List<Stroke> strokes, ref double[] prox, ref double[] proy)
+        public static void getProjection(CharPattern pat, ref double[] prox, ref double[] proy)
         {
-
+            int l = pat.boundary.X;
+            int t = pat.boundary.Y;
 
             point prePoint, nextPoint;
 
-            foreach (Stroke stroke in strokes)
+            foreach (Stroke stroke in pat.strokes)
             {
                 prePoint = stroke.points[0];
                 for (int index = 1; index < stroke.points.Count; index++)
@@ -701,26 +697,30 @@ namespace CASIA_DB_Reader
                     {
                         if (prePoint.y < nextPoint.y)
                         {
-                            setProjection(ref prox, ref proy, prePoint.x, nextPoint.x, prePoint.y, nextPoint.y);
+                            setProjection(ref prox, ref proy, prePoint.x - l, nextPoint.x - l, prePoint.y - t, nextPoint.y - t);
                         }
                         else
                         {
-                            setProjection(ref prox, ref proy, prePoint.x, nextPoint.x, nextPoint.y, prePoint.y);
+                            setProjection(ref prox, ref proy, prePoint.x - l, nextPoint.x - l, nextPoint.y - t, prePoint.y - t);
                         }
                     }
                     else
                     {
                         if (prePoint.y < nextPoint.y)
                         {
-                            setProjection(ref prox, ref proy, nextPoint.x, prePoint.x, prePoint.y, nextPoint.y);
+                            setProjection(ref prox, ref proy, nextPoint.x - l, prePoint.x - l, prePoint.y - t, nextPoint.y - t);
                         }
                         else
                         {
-                            setProjection(ref prox, ref proy, nextPoint.x, prePoint.x, nextPoint.y, prePoint.y);
+                            setProjection(ref prox, ref proy, nextPoint.x - l, prePoint.x - l, nextPoint.y - t, prePoint.y - t);
                         }
                     }
                     prePoint = nextPoint;
+                    prox[prePoint.x - l]--;
+                    proy[prePoint.y - t]--;
                 }
+                prox[prePoint.x - l]++;
+                proy[prePoint.y - t]++;
             }
         }
 
