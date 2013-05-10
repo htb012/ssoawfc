@@ -13,7 +13,13 @@ namespace CASIA_DB_Reader
         public string tagCode { get; set; }
         public ushort strokeNum { get; set; }
         public  List<Stroke> strokes{ get; set; }
+        /// <summary>
+        /// 在Y轴上的横向网格线的分界点
+        /// </summary>
         public List<int> horGridLine { get; set; }
+        /// <summary>
+        /// 在X轴上的纵向网格线的分界点
+        /// </summary>
         public List<int> verGridLine { get; set; }
         /// <summary>
         /// 是否已经获取边界

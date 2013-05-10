@@ -83,7 +83,7 @@ namespace CASIA_DB_Reader
             Bitmap bmp = new Bitmap(WIDTH_PX, HEIGHT_PX);
             Graphics graphics = Graphics.FromImage(bmp);     //创建该位图的Graphics对象
             CharPattern pat = next();
-            POTTool.pointComplement(ref pat);//短缺点补足
+            POTTool.interPoint(ref pat);//短缺点补足
             POTTool.translational(ref pat);
             POTTool.reSize(ref pat);
             point prePoint, nextPoint;

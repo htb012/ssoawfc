@@ -24,11 +24,12 @@ namespace CASIA_DB_Reader
             Pen pen = new Pen(Color.Green);
             foreach (int value in pat.horGridLine)
             {
-                graphics.DrawLine(pen, 0, value, POTTool.WIDTH, value);
+                graphics.DrawLine(pen, 0, value, POTTool.WIDTH+30, value);
             }
+            pen = new Pen(Color.Violet);
             foreach (int value in pat.verGridLine)
             {
-                graphics.DrawLine(pen, value, 0, value, POTTool.LENGTH);
+                graphics.DrawLine(pen, value, 0, value, POTTool.LENGTH+30);
             }
         }
 
@@ -40,10 +41,10 @@ namespace CASIA_DB_Reader
             int[] verGridLine = new int[GRIDNUM - 1];//纵向网格线
 
             //投影
-            double[] prox = new double[rec.Right + 1];
-            double[] proy = new double[rec.Bottom + 1];
+            double[] prox = new double[rec.Width];
+            double[] proy = new double[rec.Height];
             //获取投影
-            POTTool.getProjection(pat.strokes, ref prox, ref proy);
+            POTTool.getProjection(pat, ref prox, ref proy);
             double xGrandTotal = 0, yGrandTotal = 0;
             //计算X轴和Y轴的投影总值
             foreach (double value in prox)
@@ -62,34 +63,38 @@ namespace CASIA_DB_Reader
             int GridLineIndex = 0;
             xGrandTotal = 0;
             //划分纵向网格线的位置
-            for (int i = 0; i <= rec.Right; i++)
+            for (int i = 0; i < rec.Width; i++)
             {
                 xGrandTotal += prox[i];
-                int currentIndex = (int)(xGrandTotal / xGrandAve) - 1;
-                while ( GridLineIndex < currentIndex)
+                int currentIndex = (int)(xGrandTotal / xGrandAve);
+                while ((GridLineIndex < currentIndex) && (GridLineIndex < GRIDNUM - 1))
                 {
-                    verGridLine[GridLineIndex++] = i;
+                    verGridLine[GridLineIndex++] = rec.X + i;
+                    //Console.Write(i+",");
                 }
                 if (GridLineIndex >= GRIDNUM - 1)
                 {
                     break;
                 }
-            }
+            } 
+            //Console.WriteLine();
             //划分横向网格线的位置
             GridLineIndex = 0;
             yGrandTotal = 0;
-            for (int i = 0; i <= rec.Bottom; i++)
+            for (int i = 0; i < rec.Height; i++)
             {
                 yGrandTotal += proy[i];
-                int currentIndex = (int)(yGrandTotal / yGrandAve) - 1;
-                while (GridLineIndex < currentIndex) {
-                    horGridLine[GridLineIndex++] = i;
+                int currentIndex = (int)(yGrandTotal / yGrandAve);
+                while ((GridLineIndex < currentIndex) && (GridLineIndex < GRIDNUM - 1)) {
+                    horGridLine[GridLineIndex++] =rec.Y + i;
+                    //Console.Write(i + ",");
                 }
                 if (GridLineIndex >= GRIDNUM - 1)
                 {
                     break;
                 }
-            }
+            } 
+            //Console.WriteLine();
             pat.horGridLine = horGridLine.ToList();
             pat.verGridLine = verGridLine.ToList();
         }
