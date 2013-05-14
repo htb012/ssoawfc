@@ -488,12 +488,18 @@ namespace CASIA_DB_Reader
             {
                 for (int i = 0; i < stroke.points.Count; i++)
                 {
+
                     if (getDistance(stroke.points[i], centroid) > cutDistance)
                     {
-                        if (i == 0)
+                        if (i == 0)//如果为起始点
                         {
+                            if (stroke.points.Count <= 1) {
+                                stroke.points.RemoveAt(0);
+                                continue;
+                            }
                             if (getDistance(stroke.points[1], centroid) > cutDistance)
                             {
+                                //去除起始点
                                 stroke.points.RemoveAt(0);
                                 i--;
                             }
