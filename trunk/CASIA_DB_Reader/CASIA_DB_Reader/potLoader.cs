@@ -61,6 +61,9 @@ namespace CASIA_DB_Reader
                 {
                     if (y != -1)
                     {
+                        if (stroke.points.Count <= 1) {
+                            Console.WriteLine("have point stroke!");
+                        }
                         pat.strokes.Add(stroke);
                         stroke = new Stroke();
                     }

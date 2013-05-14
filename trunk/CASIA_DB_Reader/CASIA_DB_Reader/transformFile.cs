@@ -102,9 +102,11 @@ namespace CASIA_DB_Reader
                 }
                 else
                 {
-                    if (y != -1)
+                    if (y == 0)
                     {
-                        pat.strokes.Add(stroke);
+                        if (stroke.points.Count > 1) {
+                            pat.strokes.Add(stroke);
+                        }
                         stroke = new Stroke();
                     }
                 }
